@@ -1,45 +1,45 @@
-# Metricas de Desempenho
+## Métricas de Desempenho
 
-## Introducao
+## Introdução
 
-Este documento padroniza as metricas usadas para avaliar os modelos e orienta a interpretacao de resultados.
+Este documento padroniza as métricas usadas para avaliar os modelos e orienta a interpretação de resultados.
 
 ## RMSE (Root Mean Squared Error)
 
-Formula:
-```
-RMSE = sqrt( (1/n) * sum( (y_true - y_pred)^2 ) )
-```
+Fórmula:
+$$
+\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_{\text{true}} - y_{\text{pred}})^2}
+$$
 
 - Penaliza erros grandes
-- Mesma escala da variavel alvo
-- Menor e melhor
+- Mesma escala da variável alvo
+- Menor é melhor
 
 ## MAE (Mean Absolute Error)
 
-Formula:
-```
-MAE = (1/n) * sum( |y_true - y_pred| )
-```
+Fórmula:
+$$
+\text{MAE} = \frac{1}{n} \sum_{i=1}^{n} |y_{\text{true}} - y_{\text{pred}}|
+$$
 
-- Erro tipico, robusto a outliers
-- Mesma escala da variavel alvo
-- Menor e melhor
+- Erro típico, robusto a outliers
+- Mesma escala da variável alvo
+- Menor é melhor
 
-## R2 (Coeficiente de Determinacao)
+## $R^2$ (Coeficiente de Determinação)
 
-Formula:
-```
-R2 = 1 - (SS_res / SS_tot)
-```
+Fórmula:
+$$
+R^2 = 1 - \frac{SS_{\text{res}}}{SS_{\text{tot}}}
+$$
 
-- Proporcao da variancia explicada
-- Intervalo tipico [0, 1]
-- Maior e melhor
+- Proporção da variância explicada
+- Intervalo típico [0, 1]
+- Maior é melhor
 
 ## Competition Score (métrica customizada)
 
-Pseudo-codigo:
+Pseudo-código:
 ```python
 import numpy as np
 
@@ -57,21 +57,21 @@ def competition_score(y_true, y_pred):
     return {"score": float(1.0 - scaled_mape), "frac_le1": frac_le1, "scaled_mape": scaled_mape}
 ```
 
-- Especifica do dominio da competicao
+- Específica do domínio da competição
 - Intervalo [0, 1]
-- Maior e melhor
+- Maior é melhor
 
-## Como comparar modelos sem a competicao
+## Como comparar modelos sem a competição
 
-- Priorize R2 para comparacao universal
-- Use RMSE e MAE para interpretar magnitude e robustez do erro
-- Avalie estabilidade entre folds (desvio padrao das metricas)
+- Priorize $R^2$ para comparação universal
+- Use RMSE e MAE para interpretar a magnitude e robustez do erro
+- Avalie a estabilidade entre folds (desvio padrão das métricas)
 
-## Tabela de referencia
+## Tabela de referência
 
-| Metrica | Escala | Melhor |
+| Métrica | Escala | Melhor |
 |---------|--------|--------|
-| RMSE | Mesma da variavel | Menor |
-| MAE | Mesma da variavel | Menor |
-| R2 | [0,1] | Maior |
+| RMSE | Mesma da variável | Menor |
+| MAE | Mesma da variável | Menor |
+| $R^2$ | [0,1] | Maior |
 | Competition Score | [0,1] | Maior |

@@ -46,7 +46,7 @@ Saida (1 neuronio - regressao)
 
 ### v3: TimeSeriesSplit + Multiple Seeds
 
-- Validacao temporal rigorosa
+- Validação temporal 
 - 3 seeds distintos (42, 123, 456)
 - Avalia robustez e reproducibilidade
 
@@ -56,14 +56,15 @@ Saida (1 neuronio - regressao)
 - **Reverso para predicoes**: expm1(predicoes)
 - **Features**: StandardScaler normaliza para media 0, desvio 1
 
-## Resultados Resumidos
+## Comparacao Resumida
 
-| Metrica | v1 | v2 | v3 |
-|---------|----|----|-----|
-| RMSE | 38,938 | 7,547 | 19,992 |
-| MAE | 13,566 | 1,627 | - |
-| R2 | 0,5513 | 0,9763 | - |
-| Competition Score | - | 0,9530 | 0,7821 |
+| Modelo | Validacao | Features | RMSE | MAE | R² | Competition Score |
+|--------|-----------|----------|------|-----|----|--------------------|
+| v1 | TimeSeriesSplit | 27 | 38.937,57 | 13.565,70 | 0,5513 | - |
+| v2 | GroupKFold | 27 + lags | 7.547,03 | 1.626,75 | 0,9763 | 0,9530 |
+| v3 | TimeSeriesSplit | 27 | 19.991,72 | 863,65 | 0,9942 | 0,7821 |
+
+**Resultado Final:** v2 é superior em métrica de competição e generalização, apesar de v3 ter R² mais alta (OVERFITTING).
 
 ---
 

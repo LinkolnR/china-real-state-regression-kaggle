@@ -1,97 +1,25 @@
-# Conclusoes
+# Conclusão
 
-## Sumario Executivo
+Este projeto se propôs a desenvolver e avaliar um modelo de regressão para a previsão de demanda no mercado imobiliário chinês, utilizando uma abordagem incremental que culminou na comparação de três versões de um Perceptron Multicamadas (MLP). A análise dos resultados não apenas permitiu a identificação de um modelo superior, mas também gerou insights valiosos sobre a metodologia de modelagem para dados temporais e hierárquicos.
 
-Este trabalho desenvolveu e comparou tres modelos de regressao para previsao de demanda imobiliaria chinesa. O modelo v2, baseado em feature engineering sofisticado e validacao apropriada, demonstrou superioridade clara sobre v1 baseline e v3 otimizado.
+## Síntese dos Principais Achados
 
-## Descobertas Principais
+A evolução do Modelo v1 ao v3 demonstrou três lições:
 
-### 1. Impacto Transformador do Feature Engineering
+1.  **A Superioridade da Engenharia de Atributos:** A transição do Modelo v1 para o v2, que introduziu atributos baseados em defasagens temporais (*lags*) e médias móveis (*moving averages*), resultou em uma melhoria drástica no desempenho. A redução de **80,6% no RMSE** e o aumento de **77 pontos percentuais no coeficiente de determinação ($R^2$)** demonstram que uma engenharia de atributos bem fundamentada, capaz de capturar as dinâmicas intrínsecas dos dados, possui um impacto superior ao de ajustes finos na arquitetura do modelo.
 
-- Reducao de 80,6% no RMSE através de lags e medias moveis
-- Melhoria de 77 pontos percentuais em R²
-- Feature engineering apropriado compensa arquitetura simples
+2.  **A Importância da Estratégia de Validação:** A escolha de uma estratégia de validação adequada ao problema foi crucial. O Modelo v2, que utilizou `GroupKFold` para respeitar a estrutura hierárquica dos setores, apresentou uma generalização muito superior ao Modelo v3, que retornou a uma abordagem de `TimeSeriesSplit`. Isso evidencia que a prevenção de vazamento de dados (*data leakage*) e a representação correta da estrutura dos dados no processo de validação são tão críticas quanto a própria arquitetura do modelo.
 
-### 2. Importancia da Validacao Apropriada
+3.  **Os Limites da Otimização de Hiperparâmetros:** O Modelo v3, apesar de empregar uma busca sistemática por hiperparâmetros, não apenas falhou em superar o Modelo v2, como também apresentou um desempenho inferior em métricas de generalização (RMSE e *Competition Score*). Este resultado exemplifica um caso clássico de retornos decrescentes, onde a complexidade adicional e o custo computacional não se traduziram em ganhos de performance, indicando um sobreajuste ao conjunto de validação.
 
-- GroupKFold por setor superou TimeSeriesSplit genérico
-- Validacao respeitando hierarquia dos dados evita data leakage
-- Escolha de validacao e tao critica quanto o modelo
+## Recomendações e Justificativa
 
-### 3. Limites da Otimizacao Cega
+Com base na análise comparativa, o **Modelo v2 é recomendado** como a solução final. Pelos seguintes motivos:
 
-- Busca de 36 combinacoes de hiperparametros nao melhorou resultados
-- Regularizacao excessiva prejudicou generalizacao
-- Retorno decrescente apos certo ponto de sofisticacao
+-   **Desempenho de Generalização:** Obteve o menor RMSE (7.547,03) e o segundo maior *Competition Score* (0,46430), bem próximo do score de v3, mas com menor RMSE, o que significa que ele seria melhor em prever dados nunca vistos.
+-   **Capacidade Explicativa:** Alcançou um $R^2$ de 0,9763, explicando 97,6% da variância da variável alvo.
+-   **Eficiência Computacional:** Exige um tempo de treinamento moderado (15-20 minutos).
+-   **Interpretabilidade:** As 27 features projetadas possuem um significado claro e conectado ao domínio do problema.
 
-## Recomendacoes Finais
-
-### Producao
-
-**USAR MODELO v2**
-
-- Performance: R² = 0,9763 (97,63% variancia explicada)
-- Acuracia: Competition Score = 0,9530 (95,3%)
-- Tempo: 15-20 minutos de treino
-- Interpretabilidade: 27 features com significado claro
-
-### Pesquisa Futura
-
-1. **Mantenha validacao hierarquica**: GroupKFold respeitando estrutura dos dados
-2. **Explore feature engineering adicional**: Indicadores macroeconômicos, POI
-3. **Teste modelos alternativos**: XGBoost, LightGBM para possível melhoria incremental
-4. **Analise por dominio**: Modelos especificos por setores problemáticos
-5. **Monitoramento em producao**: Track de concept drift e degradacao de performance
-
-## Contribuicoes Academicas
-
-### 1. Metodologia para Dados Hierarquicos Temporais
-
-Demonstrou efetividade de:
-- Lags multi-escala capturando dependencias temporais
-- Rolling aggregations identificando tendências
-- GroupKFold para validacao respeitando hierarquia
-
-### 2. Trade-offs de Complexidade
-
-Ilustrou que sofisticacao nao e proporcional a desempenho:
-- v2 (media complexidade): Melhor performance
-- v3 (alta complexidade): Desempenho inferior
-- Princípio de parcimonia: Simples bem fundamentado > complexo sobreajustado
-
-### 3. Importancia de Escolhas Fundamentais
-
-Regularizacao, feature engineering e validacao superam busca de hiperparametros em impacto.
-
-## Limitacoes e Trabalho Futuro
-
-### Limitacoes Atuais
-
-1. Dados limitados (5.433 obs em 67 meses)
-2. Sem dados externos sobre politicas governamentais
-3. Sem validacao prospectiva em periodos futuros
-4. Dominio do mercado chines nao profundamente explorado
-
-### Proximas Etapas
-
-1. **Curto Prazo**: Implementar v2 em producao com monitoramento
-2. **Médio Prazo**: Incorporar dados de POI e indicadores macroeconômicos
-3. **Longo Prazo**: Pesquisa sobre mercado imobiliario chines; ensembles; deep learning (LSTM)
-
-## Impacto Potencial
-
-Se v2 for utilizado em producao:
-
-- Reducao de 80% no erro de previsao vs baseline
-- Melhor alocacao de recursos (investimentos imobiliarios)
-- Mais informacao para tomada de decisao em mercado chines
-
-## Reflex ao Final
-
-Este trabalho demonstra que em machine learning, escolhas fundamentais (dados, validacao, feature engineering) importam mais que otimizacao fina de hiperparametros. Um modelo bem fundamentado com feature engineering apropriado superará um modelo mais complexo sem essas bases solidas.
 
 ---
-
-**Data de Conclusao**: 2025-10-25  
-**Status**: Completo e Pronto para Apresentacao  
-**Recomendacao Final**: Usar Modelo v2 para Producao

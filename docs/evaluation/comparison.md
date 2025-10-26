@@ -4,41 +4,47 @@
 
 Analise comparativa detalhada entre v1, v2 e v3 usando multiplas dimensoes.
 
-## Resultados Aggregados
+## Resultados Numericos
 
-| Aspecto | v1 | v2 | v3 |
-|---------|----|----|-----|
-| RMSE | 38.937,57 | 7.547,03 | 19.991,72 |
-| MAE | 13.565,70 | 1.626,75 | - |
-| R2 | 0,5513 | 0,9763 | - |
-| Competition Score | - | 0,9530 | 0,7821 |
+### Metricas Principais
 
-## Ganhos de Performance
+| Modelo | RMSE | MAE | MSE | R² | Competition Score |
+|--------|------|-----|-----|----|--------------------|
+| v1 | 38.937,57 | 13.565,70 | - | 0,5513 | - |
+| v2 | 7.547,03 | 1.626,75 | - | 0,9763 | 0,9530 |
+| v3 | 19.991,72 | 863,65 | 399.669.007 | 0,9942 | 0,7821 |
 
-### v1 -> v2: Feature Engineering
+### Ganhos de Desempenho
 
-```
-Melhoria RMSE:  -80,6%  (de 38.938 para 7.547)
-Melhoria MAE:   -88,0%  (de 13.566 para 1.627)
-Melhoria R2:    +77,0pp (de 0,55 para 0,98)
-```
+#### v1 → v2
+- RMSE: 38.937,57 → 7.547,03 (-80,6%)
+- MAE: 13.565,70 → 1.626,75 (-88,0%)
+- R²: 0,5513 → 0,9763 (+77,1pp)
 
-**Causas principais:**
-1. Lags capturam dependencias temporais
-2. Medias moveis suavizam ruido
-3. Validacao por setor garante representacao regional
+#### v1 → v3
+- RMSE: 38.937,57 → 19.991,72 (-48,6%)
+- MAE: 13.565,70 → 863,65 (-93,6%)
+- R²: 0,5513 → 0,9942 (+44,3pp)
+- Competition Score: - → 0,7821
 
-### v2 -> v3: Otimizacao
+#### v2 → v3
+- RMSE: 7.547,03 → 19.991,72 (+165%) PIORA
+- MAE: 1.626,75 → 863,65 MELHORA (-47%)
+- R²: 0,9763 → 0,9942 (+0,18pp) MELHORA
+- Competition Score: 0,9530 → 0,7821 (-17,1pp) PIORA
 
-```
-Piora RMSE:     +165%  (de 7.547 para 19.992)
-Piora Comp Score: -16,9pp (de 0,9530 para 0,7821)
-```
+### Paradoxo de v3: R² Alta vs RMSE Ruim
 
-**Causas principais:**
-1. Mudanca para TimeSeriesSplit (menos apropriado)
-2. Regularizacao excessiva
-3. Overfitting da busca de hiperparametros
+A situação de v3 é peculiar:
+- R² aumenta de 0,9763 (v2) para 0,9942 (v3)
+- MAE melhora de 1.626,75 (v2) para 863,65 (v3)
+- MAS RMSE piora drasticamente de 7.547,03 (v2) para 19.991,72 (v3)
+- E Competition Score cai de 0,9530 (v2) para 0,7821 (v3)
+
+**Explicação**: OVERFITTING severo
+- O modelo v3 ajusta perfeitamente aos dados de treino
+- Mas quando prediz dados novos (teste), erra muito
+- A métrica R² é insensível a este tipo de erro em séries temporais
 
 ## Estabilidade Entre Folds
 

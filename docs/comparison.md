@@ -1,41 +1,41 @@
-# Relatorio de Comparacao
+# Relatório de Comparação
 
 ## Resumo
 
-Analise da evolucao de v1, v2 e v3, impactos de engenharia de features, validacao e busca de hiperparametros.
+Análise da evolução de v1, v2 e v3, impactos de engenharia de features, validação e busca de hiperparâmetros.
 
-## Comparacao Tecnica
+## Comparação Técnica
 
 ### v1: Linha de base
-- MLP simples, validacao temporal
-- Sem lags ou medias moveis
+- MLP simples, validação temporal
+- Sem defasagens ou médias móveis
 
 ### v2: Melhoria significativa
-- Lags, medias moveis, interacoes, features temporais
+- Defasagens, médias móveis, interações, features temporais
 - GroupKFold por setor
-- Diagnosticos e metricas por fold
+- Diagnósticos e métricas por fold
 
-### v3: Otimizacao de hiperparametros
-- Grid reduzido com multiplos seeds
+### v3: Otimização de hiperparâmetros
+- Grade reduzida com múltiplos seeds
 - Safe MSE e clipping para estabilidade
-- Validacao TimeSeriesSplit
+- Validação TimeSeriesSplit
 
 ## Tabela comparativa
 
 | Aspecto | v1 | v2 | v3 |
 |---------|----|----|-----|
-| Features | Basicas | 27 (lags/MA) | 27 |
-| Validacao | TimeSeriesSplit | GroupKFold | TimeSeriesSplit+Seeds |
-| Arquitetura | Fixa (256,128,64) | Fixa | Busca automatica |
-| Protecao Numerica | Nao | Nao | Sim |
+| Features | Básicas | 27 (defasagens/MA) | 27 |
+| Validação | TimeSeriesSplit | GroupKFold | TimeSeriesSplit+Seeds |
+| Arquitetura | Fixa (256,128,64) | Fixa | Busca automática |
+| Proteção Numérica | Não | Não | Sim |
 | Tempo de Treino | ~10 min | ~15 min | ~2-3 horas |
 
 ## Ganhos esperados
 
 - v1 -> v2: +15 a 25 por cento
-- v2 -> v3: +5 a 15 por cento (dependente de configuracao)
+- v2 -> v3: +5 a 15 por cento (dependente de configuração)
 
-## Conclusao
+## Conclusão
 
-- v2 e recomendado para producao pelo equilibrio entre desempenho, estabilidade e simplicidade
-- v3 pode ser explorado para competicoes ou cenarios onde maior tempo de treino e aceitavel
+- v2 é recomendado para produção pelo equilíbrio entre desempenho, estabilidade e simplicidade
+- v3 pode ser explorado para competições ou cenários onde maior tempo de treino é aceitável

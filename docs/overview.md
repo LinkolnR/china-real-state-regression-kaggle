@@ -1,43 +1,43 @@
 # Resumo Executivo
 
-A evolucao dos modelos de previsao de demanda imobiliaria demonstra que o modelo v2 e o melhor candidato para producao. Ele representa uma melhoria substancial em relacao ao baseline v1, enquanto o modelo v3, apesar de buscar hiperparametros, nao superou v2 em consistencia e metricas principais.
+A evolução dos modelos de previsão de demanda imobiliária demonstra que o modelo v2 é o melhor candidato para produção. Ele representa uma melhoria substancial em relação ao baseline v1, enquanto o modelo v3, apesar de buscar hiperparâmetros, não superou o v2 em consistência e métricas principais.
 
-## Comparacao rapida
+## Comparação rápida
 
 ```
                     v1              v2              v3
                     -------------------------------
 RMSE                38.937,57  ->   7.547,03   ->  19.991,72
-MAE                 13.565,70  ->   1.626,75   ->  (nao reportado)
-R2                  0,5513     ->   0,9763     ->  (nao reportado)
+MAE                 13.565,70  ->   1.626,75   ->  (não reportado)
+$R^2$                  0,5513     ->   0,9763     ->  (não reportado)
 Comp. Score         (N/A)      ->   0,9530     ->  0,7821
 
 Features            63              27              27
-Validacao           TimeSeries      GroupKFold      TimeSeries
-Hiperparametros     Fixo            Fixo            Otimizado (36)
+Validação           TimeSeries      GroupKFold      TimeSeries
+Hiperparâmetros     Fixo            Fixo            Otimizado (36)
 
-Recomendacao        Nao             USAR ESTE       Nao
+Recomendação        Não             USAR ESTE       Não
 ```
 
-## Metricas principais
+## Métricas principais
 
 - RMSE: v1 -> v2 reduz em 80,6%; v2 -> v3 piora
 - MAE: v1 -> v2 reduz em 88,0%
-- R2: v2 explica 97,63% da variancia
+- $R^2$: v2 explica 97,63% da variância
 - Competition Score: v2 = 0,9530; v3 = 0,7821
 
-## Por que v2 e superior
+## Por que o v2 é superior
 
-1. Feature Engineering especifico para series temporais (lags, medias moveis, interacoes)
-2. Validacao por setor (GroupKFold), apropriada para dados hierarquicos
-3. Arquitetura equilibrada e hiperparametros estaveis
+1. Feature Engineering específico para séries temporais (defasagens, médias móveis, interações)
+2. Validação por setor (GroupKFold), apropriada para dados hierárquicos
+3. Arquitetura equilibrada e hiperparâmetros estáveis
 
-## Por que v3 nao superou v2
+## Por que o v3 não superou o v2
 
-1. Mudanca de validacao para TimeSeriesSplit (menos adequada ao problema)
-2. Regularizacao maior levou a possivel underfitting
-3. Busca de hiperparametros nao generalizou
+1. Mudança de validação para TimeSeriesSplit (menos adequada ao problema)
+2. Regularização maior levou a possível underfitting
+3. Busca de hiperparâmetros não generalizou
 
-## Recomendacao
+## Recomendação
 
-Usar o modelo v2 em producao. Melhorias futuras devem focar em dados, features e modelos alternativos (p. ex., gradient boosting ou ensembles), nao apenas em hiperparametros do MLP.
+Usar o modelo v2 em produção. Melhorias futuras devem focar em dados, features e modelos alternativos (p. ex., gradient boosting ou ensembles), não apenas em hiperparâmetros do MLP.

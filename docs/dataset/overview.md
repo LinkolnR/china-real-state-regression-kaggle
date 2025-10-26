@@ -1,8 +1,8 @@
-# Descricao dos Dados
+# Descrição dos Dados
 
 ## Fonte e Escopo
 
-Os dados foram coletados do mercado imobiliario chines, cobrindo transacoes de propriedades residenciais no periodo de janeiro de 2019 a julho de 2024.
+Os dados foram coletados do mercado imobiliário chinês, cobrindo transações de propriedades residenciais no periodo de janeiro de 2019 a julho de 2024.
 
 ### Granularidade
 
@@ -11,13 +11,15 @@ Os dados foram coletados do mercado imobiliario chines, cobrindo transacoes de p
 - Setores distintos: 95
 - Periodo temporal: 67 meses
 
-## Variaveis Principais
+## Variáveis Principais
 
 ### Alvo (Target)
 
-**amount_new_house_transactions**: Volume de transacoes de propriedades novas (em 10k yuan)
+**amount_new_house_transactions**:
+
+- Volume de transações de propriedades novas (em 10k yuan)
 - Altamente assimetrica (skewness > 2)
-- Contem zeros (periodos sem transacoes)
+- Contem zeros (periodos sem transações)
 - Transformacao log1p aplicada durante modelagem
 
 ### Features Originais (Basicas)
@@ -32,20 +34,20 @@ Os dados foram coletados do mercado imobiliario chines, cobrindo transacoes de p
 - quarter: Trimestre (1-4)
 - year: Ano
 
-### Indicadores de POI e Macroeconomicos
+### Indicadores de POI e Macroeconômicos
 
 - Dados de Points of Interest (POI) para comercio e servicos
 - Indices macroeconômicos (em sua maioria com dados faltantes)
 
-## Preparacao dos Dados
+## Preparação dos Dados
 
 ### Limpeza
 
-- Remocao de registros com datas invalidas
-- Verificacao de consistencia (amount ≈ area × price)
+- Remoção de registros com datas inválidas
+- Verificação de consistência (amount ≈ area × price)
 - Tratamento de valores anomalos
 
-### Transformacoes
+### Transformações
 
 - Log1p na variavel alvo para normalizar distribuicao
 - StandardScaler nas features numericas

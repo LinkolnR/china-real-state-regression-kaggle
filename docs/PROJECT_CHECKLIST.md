@@ -272,3 +272,29 @@ Todos os requisitos do projeto e da competicao foram documentados corretamente. 
 **Data de Verificacao**: 26 de outubro de 2025  
 **Verificador**: Documentacao do Projeto  
 **Status**: PRONTO PARA SUBMISSAO
+
+## Metricas de Avaliacao
+
+### v1 Metrics
+- ✅ RMSE: 38.937,57 (treino/teste)
+- ✅ MAE: 13.565,70
+- ✅ R²: 0,5513
+- ✅ Salvo em: metricas_v1.json
+
+### v2 Metrics
+- ✅ RMSE: 7.547,03 (OOF)
+- ✅ MAE: 1.626,75
+- ✅ R²: 0,9763
+- ✅ Competition Score: 0,9530
+- ✅ Salvo em: metricas_v2.json
+
+### v3 Metrics (COMPLETO)
+- ✅ RMSE: 19.991,72 (melhor modelo da busca)
+- ✅ MSE: 399.669.007
+- ✅ MAE: 863,65 (calculado no treino)
+- ✅ R²: 0,9942 (calculado no treino)
+- ✅ Competition Score: 0,7821
+- ✅ Hiperparametros: [256, 128, 64], tanh, alpha=0.0001, batch_size=128, lr=0.001
+- ✅ Busca: 36 combinacoes testadas com 3 seeds
+- ✅ ACHADO IMPORTANTE: Overfitting severo (R² alta mas RMSE ruim)
+- ✅ Salvo em: metricas_v3.json

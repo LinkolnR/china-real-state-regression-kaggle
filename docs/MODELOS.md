@@ -11,7 +11,7 @@
 - Ativações: `relu` e `tanh`.
 - Regularização: `alpha` (L2) ~ [1e-6, 1e-2] (loguniform).
 - Otimizador: `adam` com `learning_rate_init` ~ [1e-4, 5e-2] (loguniform).
-- Tamanho de batch: {64, 128, 256}.
+- Tamanho do lote: {64, 128, 256}.
 - Early stopping: `early_stopping=True`, `validation_fraction=0.15`, `n_iter_no_change=30`, `max_iter=400`.
 
 ### 3. Melhor Configuração Observada (OOF)
@@ -27,7 +27,7 @@
 - Avaliação por MSE em escala linear do alvo (após `expm1`).
 
 ### 5. Espaços para Gráficos e Tabelas
-- Curva de perda (train): `loss_curve_`.
+- Curva de perda (treino): `loss_curve_`.
 - Tabela de hiperparâmetros testados e MSE OOF por combinação.
 - Importância por permutação (top 20 features).
 

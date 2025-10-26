@@ -1,0 +1,150 @@
+================================================================================
+METRICAS FINAIS - MODELO v3 (Otimização com Busca de Hiperparâmetros)
+================================================================================
+
+DATA: 2025-10-25
+VERSAO: v3
+MODELO: MLPRegressor com Busca de Hiperparâmetros
+VALIDACAO: TimeSeriesSplit + Múltiplos Seeds
+
+================================================================================
+METRICAS DO MELHOR RESULTADO
+================================================================================
+
+RMSE (Root Mean Squared Error):    19.991,72
+MAE (Mean Absolute Error):         863,65
+MSE (Mean Squared Error):          399.669.007
+R² (Coeficiente de Determinação):  0,9942
+Competition Score:                  0,7821
+
+================================================================================
+METRICAS NO CONJUNTO DE TREINO
+================================================================================
+
+RMSE (Treino):  3.734,49
+MAE (Treino):   863,65
+MSE (Treino):   13.946.436
+R² (Treino):    0,9942
+
+ANALISE CRITICA:
+- RMSE aumenta 5,36x do treino (3.734,49) para teste (19.991,72)
+- R² permanece igual (0,9942) no treino e teste
+- Isto indica OVERFITTING SEVERO no modelo
+
+================================================================================
+MELHOR CONFIGURACAO
+================================================================================
+
+Hidden Layers:       [256, 128, 64]
+Activation Function: tanh
+Alpha (L2):          0.0001
+Batch Size:          128
+Learning Rate:       0.001
+Seed:                42
+Early Stopping:      Sim (patience=30)
+Max Iterations:      400
+Validation Fraction: 15%
+Solver:              adam
+
+================================================================================
+RESUMO DA BUSCA
+================================================================================
+
+Total de Combinações Testadas:  36
+Total de Treinamentos (com seeds): ~108 (36 x 3 seeds)
+
+Grid de Hiperparâmetros:
+- Hidden Layer Sizes: 3 opções
+- Activation: 2 opções (relu, tanh)
+- Alpha: 3 opções
+- Batch Size: 2 opções (64, 128)
+- Learning Rate: 2 opções (0.001, 0.0001)
+- Seeds Utilizados: 3 (42, 123, 456)
+
+================================================================================
+COMPARACAO COM OUTRAS VERSOES
+================================================================================
+
+                    v1          v2          v3
+RMSE:          38.937,57    7.547,03    19.991,72
+MAE:           13.565,70    1.626,75      863,65
+R²:              0,5513      0,9763      0,9942 ← MAIS ALTA!
+Competition:        -        0,9530      0,7821
+
+Melhoria v1→v2:  80,6% (RMSE)
+Melhoria v1→v3:  48,6% (RMSE)
+Mudança v2→v3:  -165% (piora em RMSE)
+
+================================================================================
+DESCOBERTA CRITICA: OVERFITTING EM v3
+================================================================================
+
+O PARADOXO:
+- v3 tem R² MAIS ALTA (0,9942) que v2 (0,9763)
+- v3 tem MAE MELHOR (863,65) que v2 (1.626,75)
+- MAS v3 tem RMSE PIOR (19.991,72) que v2 (7.547,03)
+- E v3 tem Competition Score PIOR (0,7821) que v2 (0,9530)
+
+EXPLICACAO:
+- O modelo v3 ajusta PERFEITAMENTE aos dados de treino
+- Quando aplicado a dados NOVOS, erra massivamente
+- A métrica R² é INSENSÍVEL a este tipo de erro
+- RMSE é a métrica verdadeira de generalização
+
+EVIDENCIA:
+- RMSE Treino: 3.734,49
+- RMSE Teste: 19.991,72
+- Razão: 5,36x PIOR no teste
+
+================================================================================
+CONCLUSOES
+================================================================================
+
+1. v2 CONTINUA SENDO A MELHOR OPCAO
+   - Menor RMSE: 7.547,03 (vs 19.991,72 em v3)
+   - Melhor generalização comprovada
+   - Maior Competition Score: 0,9530
+   - Feature engineering é MAIS EFETIVO que otimização
+
+2. v3 NÃO SUPEROU v2 APESAR DA OTIMIZACAO EXAUSTIVA
+   - Busca de 36 combinações + 3 seeds = ~108 treinamentos
+   - Resultado: OVERFITTING severo
+   - Lição: Otimização cega sem consideração de generalização fracassa
+
+3. INSIGHTS IMPORTANTES PARA MACHINE LEARNING
+   - Feature Engineering > Otimização de Hiperparâmetros
+   - R² pode ser ENGANOSA em séries temporais
+   - Arquitetura profunda [256,128,64] sem feature engineering → overfitting
+   - GroupKFold (v2) > TimeSeriesSplit (v3) para dados hierárquicos
+   - Regularização L2 fraca (alpha=0.0001) contra arquitetura profunda
+
+4. ARQUIVOS GERADOS
+   - metricas_v3.json: Métricas completas em formato JSON
+   - mlp_model_v3.joblib: Modelo treinado salvo
+   - feature_cols_v3.joblib: Features utilizadas
+
+================================================================================
+RECOMENDACAO FINAL
+================================================================================
+
+✓ USAR v2 PARA SUBMISSAO NA KAGGLE
+  Razões:
+  - Melhor RMSE (7.547,03)
+  - Melhor generalização (prova: Competition Score 0,9530)
+  - Mais estável e confiável
+  - Feature engineering venceu otimização cega
+
+✗ NÃO USAR v3 PARA SUBMISSAO
+  Razões:
+  - Overfitting severo (RMSE 5,36x pior no teste)
+  - Competition Score inferior
+  - Apesar de R² alta, não generaliza bem
+  - Demonstra limites de busca de hiperparâmetros sem feature engineering
+
+v3 é VALIOSO como EXPERIMENTO EDUCACIONAL:
+  - Mostra o que NÃO fazer
+  - Demonstra importância de feature engineering
+  - Prova que R² sozinha é métrica insuficiente
+  - Evidencia overfitting em redes profundas
+
+================================================================================

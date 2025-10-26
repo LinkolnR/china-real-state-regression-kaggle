@@ -1,5 +1,17 @@
 # Resultados Finais
 
+## Galeria Rápida (Figuras)
+
+- Predito vs Real (v2): ![pred_vs_true](../imgs/pred_vs_true.png)
+- Curva de Perda (v2): ![loss_curve](../imgs/loss_curve.png)
+- Resíduos (v2): ![residuos](../imgs/residuos.png)
+- Importância por Permutação (v2): ![perm_importance](../imgs/perm_importance.png)
+- Predito vs Real (v3): ![pred_vs_true_v3](../imgs/pred_vs_true_v3.png)
+- Curva de Perda (v3): ![loss_curve_v3](../imgs/loss_curve_v3.png)
+- Resíduos (v3): ![residuos_v3](../imgs/residuos_v3.png)
+- Importância por Permutação (v3): ![perm_importance_v3](../imgs/perm_importance_v3.png)
+- Evolução do Best Competition Score por Iteração (v3): ![oof_por_iteracao](../imgs/oof_por_iteracao.png)
+
 ## Conclusoes Principais
 
 ### 1. Superioridade de v2
@@ -110,6 +122,112 @@ Ilustrou que sofisticacao nao e equivalente a desempenho. Regularizacao excessiv
 ### Predicoes
 
 - `submission_v2.csv`: Predicoes recomendadas
+
+### Metricas do Melhor Modelo v3
+
+| Metrica | Valor |
+|---------|-------|
+| RMSE | 19.991,72 |
+| MAE | 863,65 |
+| MSE | 399.669.007 |
+| R² | 0,9942 |
+| Competition Score | 0,7821 |
+
+## Comparacao Completa: v1 vs v2 vs v3
+
+### Tabela de Metricas Finais
+
+| Metrica | v1 (Baseline) | v2 (Recomendado) | v3 (Otimizacao) |
+|---------|---------------|------------------|-----------------|
+| RMSE | 38.937,57 | 7.547,03 | 19.991,72 |
+| MAE | 13.565,70 | 1.626,75 | 863,65 |
+| MSE | - | - | 399.669.007 |
+| R² | 0,5513 | 0,9763 | 0,9942 |
+| Competition Score | - | 0,9530 | 0,7821 |
+
+### Resumo de Desempenho
+
+#### v1 - Baseline
+- **RMSE**: 38.937,57 (linha de base)
+- **MAE**: 13.565,70
+- **R²**: 0,5513 (explica ~55% da variância)
+- Modelo simples sem feature engineering
+
+#### v2 - Recomendado (MELHOR)
+- **RMSE**: 7.547,03 (82% melhor que v1)
+- **MAE**: 1.626,75 (88% melhor que v1)
+- **R²**: 0,9763 (explica ~98% da variância)
+- **Competition Score**: 0,9530
+- Feature engineering avançado com lags e médias móveis
+- Validação por setor (GroupKFold)
+- Melhor generalização
+
+#### v3 - Otimizacao (Overfitting)
+- **RMSE**: 19.991,72 (intermediário entre v1 e v2)
+- **MAE**: 863,65 (pior que v2)
+- **MSE**: 399.669.007
+- **R²**: 0,9942 (MAIS ALTA que v2!)
+- **Competition Score**: 0,7821
+- Busca sistemática de 36 hiperparâmetros com 3 seeds
+- Melhor configuração: [256, 128, 64] com tanh
+- **PROBLEMA**: R² elevada mas RMSE ruim = OVERFITTING SEVERO
+
+### Analise Comparativa
+
+#### Progressao de RMSE
+```
+v1: 38.937,57 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ (referencia)
+v3: 19.991,72 ━━━━━━━━━━━━ (intermediário)
+v2:  7.547,03 ━━━ (melhor!)
+```
+
+#### Progressao de R²
+```
+v1: 0,5513  ████ 
+v2: 0,9763  ██████████████████ (excelente!)
+v3: 0,9942  ██████████████████ (parece melhor mas OVERFITTING!)
+```
+
+#### Competition Score
+```
+v2: 0,9530 ████████████████████ (excelente)
+v3: 0,7821 ████████████ (bom)
+v1: -      - (não calculado)
+```
+
+### Conclusoes Principais
+
+1. **v2 é a solução recomendada**
+   - Melhor RMSE (7.547,03)
+   - Melhor R² com GENERALIZAÇÃO (0,9763)
+   - Melhor Competition Score (0,9530)
+   - Feature engineering provou ser mais efetivo
+
+2. **v3 sofre com OVERFITTING severo**
+   - R² mais alta (0,9942) que v2 mas RMSE 2,65x PIOR
+   - RMSE no teste: 19.991,72 vs RMSE no treino: 3.734,49
+   - A discrepancia revela que o modelo não generaliza
+   - Lições: R² NÃO é métrica confiável para séries temporais
+
+3. **v1 serviu como baseline**
+   - RMSE: 38.937,57
+   - Demonstrou a necessidade de melhorias
+   - v2 alcançou 81% de melhoria sobre v1
+
+### Insights Técnicos
+
+- **Feature Engineering > Otimizacao**: v2 com feature engineering bateu v3 com busca exaustiva
+- **Validacao Importa**: GroupKFold (v2) foi melhor que TimeSeriesSplit (v3)
+- **Arquitetura Profunda com Overfitting**: v3 com 3 camadas [256,128,64] ajusta perfeitamente ao treino mas falha no teste
+- **R² é Enganosa**: Métrica R² alta não garante boa generalização em séries temporais
+- **Regularizacao Insuficiente**: Alpha=0.0001 não foi forte o bastante contra overfitting em v3
+
+### Recomendacao Final
+
+**✓ Submeter v2 para a competição Kaggle**
+- Melhor RMSE e Competition Score
+- Melhor generalização
+- Feature engineering é estratégia vencedora
 
 ## Limitacoes
 

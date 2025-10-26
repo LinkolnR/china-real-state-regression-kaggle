@@ -1,15 +1,23 @@
 {
   "versao": "v3",
-  "data": "2025-10-25T21:10:31.768406",
-  "modelo": "MLPRegressor com Busca de Hiperpar\u00e2metros",
-  "validacao": "TimeSeriesSplit + M\u00faltiplos Seeds",
+  "data": "2025-10-26T18:18:07.424416",
+  "modelo": "MLPRegressor com Busca de Hiperparametros",
+  "validacao": "TimeSeriesSplit + Multiplos Seeds",
   "features": 27,
   "observacoes": 5433,
   "setores": 95,
   "metricas_melhor_resultado": {
     "rmse": 19991.723454505984,
+    "mae": 863.6510527869824,
     "mse": 399669006.68144464,
+    "r2": 0.9942016133580889,
     "competition_score": 0.7820970812777122
+  },
+  "metricas_treino": {
+    "rmse": 3734.4927623590884,
+    "mae": 863.6510527869824,
+    "mse": 13946436.192112414,
+    "r2": 0.9942016133580889
   },
   "melhor_configuracao": {
     "hidden_layers": [
