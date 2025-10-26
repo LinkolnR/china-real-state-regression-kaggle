@@ -1,0 +1,47 @@
+site_name: Previsao de Demanda Imobiliaria Chinesa
+site_description: Documentacao academica - Analise e modelagem de demanda no mercado imobiliario chines
+site_url: 
+repo_url: 
+docs_dir: docs
+nav:
+  - Inicio: index.md
+  - Contexto do Projeto: project.md
+  - Dataset e Preparacao: 
+    - Descricao dos Dados: dataset/overview.md
+    - Exploracao Inicial: dataset/eda.md
+  - Modelos de Training:
+    - Visao Geral: training/overview.md
+    - Modelo v1 - Baseline: training/v1.md
+    - Modelo v2 - Feature Engineering: training/v2.md
+    - Modelo v3 - Otimizacao: training/v3.md
+  - Avaliacao:
+    - Metricas de Desempenho: evaluation/metrics.md
+    - Comparacao dos Modelos: evaluation/comparison.md
+    - Resultados Finais: evaluation/results.md
+  - Fluxo de Execucao: workflow.md
+  - Referencias: references.md
+  - Conclusoes: conclusion.md
+  - Checklist: checklist.md
+
+theme:
+  name: material
+  language: pt
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - toc.integrate
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - tables
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - attr_list
+  - footnotes
+  - md_in_html
+
+plugins:
+  - search
