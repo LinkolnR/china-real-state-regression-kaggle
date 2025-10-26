@@ -1,0 +1,37 @@
+{
+  "versao": "v3",
+  "data": "2025-10-25T21:10:31.768406",
+  "modelo": "MLPRegressor com Busca de Hiperpar\u00e2metros",
+  "validacao": "TimeSeriesSplit + M\u00faltiplos Seeds",
+  "features": 27,
+  "observacoes": 5433,
+  "setores": 95,
+  "metricas_melhor_resultado": {
+    "rmse": 19991.723454505984,
+    "mse": 399669006.68144464,
+    "competition_score": 0.7820970812777122
+  },
+  "melhor_configuracao": {
+    "hidden_layers": [
+      256,
+      128,
+      64
+    ],
+    "activation": "tanh",
+    "alpha": 0.0001,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "seed": 42
+  },
+  "resumo_busca": {
+    "total_combinacoes_testadas": 36,
+    "parametros_grid": {
+      "hidden_layer_sizes": 3,
+      "activation": 2,
+      "alpha": 3,
+      "batch_size": 2,
+      "learning_rate_init": 2
+    },
+    "seeds_utilizados": 3
+  }
+}

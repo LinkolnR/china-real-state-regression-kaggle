@@ -1,0 +1,28 @@
+{
+  "versao": "v1",
+  "data": "2025-10-25T20:47:04.246041",
+  "modelo": "MLPRegressor",
+  "validacao": "TimeSeriesSplit",
+  "features": 63,
+  "observacoes_treino": 5305,
+  "observacoes_teste": 1060,
+  "metricas": {
+    "rmse_train": 27894.78024249525,
+    "rmse_test": 38937.57017814025,
+    "mae_train": 7981.8975556191135,
+    "mae_test": 13565.699839022041,
+    "r2_train": 0.5951613636703861,
+    "r2_test": 0.5513036488715768
+  },
+  "arquitetura": {
+    "hidden_layers": [
+      256,
+      128,
+      64
+    ],
+    "activation": "relu",
+    "alpha": 1e-05,
+    "batch_size": 64,
+    "learning_rate": 0.001
+  }
+}
