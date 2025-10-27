@@ -9,6 +9,12 @@ Projeto de Conclusão: Previsão de Demanda Imobiliária Chinesa via Competiçã
 
 Este trabalho apresenta uma análise comparativa de três modelos de regressão neural desenvolvidos para prever a demanda de transações imobiliárias no mercado chinês. Participação na competição Kaggle "Real Estate Demand Prediction Challenge".
 
+## Grupo
+
+1. Esdras Gomes Carvalho
+2. Lincoln Rodrigo Pereira de Melo
+3. Lucca d'Oliveira Gheti Kao
+
 ## Contexto da Competição
 
 - **Objetivo**: Prever volume mensal de vendas (em 10 mil Yuan) para o mercado chinês
