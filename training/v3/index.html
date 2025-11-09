@@ -1,0 +1,1409 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação acadêmica - Análise e modelagem de demanda no mercado imobiliário chinês">
+      
+      
+      
+      
+        <link rel="prev" href="../v2/">
+      
+      
+        <link rel="next" href="../../evaluation/metrics/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Modelo v3 - Otimização - Previsão de Demanda Imobiliária Chinesa</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modelo-v3-otimizacao-de-hiperparametros" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Previsão de Demanda Imobiliária Chinesa" class="md-header__button md-logo" aria-label="Previsão de Demanda Imobiliária Chinesa" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Previsão de Demanda Imobiliária Chinesa
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Modelo v3 - Otimização
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../project/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contexto do Projeto
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../dataset/overview/" class="md-tabs__link">
+          
+  
+  
+  Dataset e Preparação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../overview/" class="md-tabs__link">
+          
+  
+  
+  Modelos de Training
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../evaluation/metrics/" class="md-tabs__link">
+          
+  
+  
+  Avaliação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../conclusion/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Conclusões
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Previsão de Demanda Imobiliária Chinesa" class="md-nav__button md-logo" aria-label="Previsão de Demanda Imobiliária Chinesa" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Previsão de Demanda Imobiliária Chinesa
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Início
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contexto do Projeto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Dataset e Preparação
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Dataset e Preparação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dataset/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Descrição dos Dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dataset/eda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exploração Inicial
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Modelos de Training
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Modelos de Training
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visão Geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modelo v1 - Baseline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../v2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modelo v2 - Feature Engineering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Modelo v3 - Otimização
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modelo v3 - Otimização
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objetivo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estrategia-de-busca" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estratégia de Busca
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Estratégia de Busca">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grade-de-hiperparametros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grade de Hiperparâmetros
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criterios-de-selecao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Critérios de Seleção
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#melhor-configuracao-encontrada" class="md-nav__link">
+    <span class="md-ellipsis">
+      Melhor Configuração Encontrada
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protecoes-numericas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proteções Numéricas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validação
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resultados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resultados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metricas-do-melhor-modelo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métricas do Melhor Modelo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metricas-no-conjunto-de-treino" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métricas no Conjunto de Treino
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquitetura-do-melhor-modelo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquitetura do Melhor Modelo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparacao-com-versoes-anteriores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparação com Versões Anteriores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rmse-root-mean-squared-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      RMSE (Root Mean Squared Error)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r2-coeficiente-de-determinacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(R^2\) (Coeficiente de Determinação)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competition-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competition Score
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analise-de-resultados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Análise de Resultados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Análise de Resultados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overfitting-severo-em-v3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overfitting Severo em v3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metricas-de-treino-vs-melhor-modelo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métricas de Treino vs Melhor Modelo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#por-que-o-v3-nao-superou-o-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Por que o v3 Não Superou o v2?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implicacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implicações
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implicações">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observacao-critica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observação Crítica
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusões
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusoes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusões
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#galeria-de-graficos-v3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Galeria de Gráficos (v3)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Avaliação
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Avaliação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../evaluation/metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Métricas de Desempenho
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../evaluation/comparison/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Comparação dos Modelos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../evaluation/results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Resultados Finais
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conclusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Conclusões
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="modelo-v3-otimizacao-de-hiperparametros">Modelo v3 - Otimização de Hiperparâmetros<a class="headerlink" href="#modelo-v3-otimizacao-de-hiperparametros" title="Permanent link">&para;</a></h1>
+<h2 id="objetivo">Objetivo<a class="headerlink" href="#objetivo" title="Permanent link">&para;</a></h2>
+<p>Explorar sistematicamente o espaço de hiperparâmetros para encontrar a configuração ótima.</p>
+<h2 id="estrategia-de-busca">Estratégia de Busca<a class="headerlink" href="#estrategia-de-busca" title="Permanent link">&para;</a></h2>
+<h3 id="grade-de-hiperparametros">Grade de Hiperparâmetros<a class="headerlink" href="#grade-de-hiperparametros" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;hidden_layer_sizes&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span> <span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">),</span> <span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">128</span><span class="p">)],</span>
+    <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="s1">&#39;tanh&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1e-5</span><span class="p">,</span> <span class="mf">1e-4</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">],</span>
+    <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">128</span><span class="p">,</span> <span class="mi">256</span><span class="p">],</span>
+    <span class="s1">&#39;learning_rate_init&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="c1"># Combinações: 3 × 2 × 3 × 2 × 2 = 72 potenciais</span>
+<span class="c1"># Com ParameterSampler(n_iter=12): 12 × 5 folds × 3 seeds = 180 modelos</span>
+</code></pre></div>
+
+<h3 id="criterios-de-selecao">Critérios de Seleção<a class="headerlink" href="#criterios-de-selecao" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Métrica principal</strong>: Competition Score (maior e melhor)</li>
+<li><strong>Critério secundário</strong>: MSE (menor e melhor)</li>
+<li><strong>Reprodutibilidade</strong>: 3 seeds distintos (42, 123, 456)</li>
+</ol>
+<h3 id="melhor-configuracao-encontrada">Melhor Configuração Encontrada<a class="headerlink" href="#melhor-configuracao-encontrada" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+    <span class="s1">&#39;hidden_layer_sizes&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">),</span>
+    <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="s1">&#39;tanh&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="mf">0.0001</span><span class="p">,</span>  <span class="c1"># 10x maior que v2 (mais regularização)</span>
+    <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">128</span><span class="p">,</span>  <span class="c1"># Redução de 256</span>
+    <span class="s1">&#39;learning_rate_init&#39;</span><span class="p">:</span> <span class="mf">0.001</span>  <span class="c1"># Redução de 0.01</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="protecoes-numericas">Proteções Numéricas<a class="headerlink" href="#protecoes-numericas" title="Permanent link">&para;</a></h2>
+<p>Implementadas para evitar overflow (O que ocorreu algumas vezes enquanto estava rodando):</p>
+<div class="codehilite"><pre><span></span><code><span class="n">LOG_MAX</span> <span class="o">=</span> <span class="mf">20.0</span>    <span class="c1"># exp(20) ~ 4.85e8</span>
+<span class="n">LOG_MIN</span> <span class="o">=</span> <span class="o">-</span><span class="mf">20.0</span>
+<span class="n">PRED_MAX</span> <span class="o">=</span> <span class="mf">1e10</span>
+<span class="n">PRED_MIN</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="c1"># Clipping em log-space</span>
+<span class="n">y_pred_log</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_pred_log</span><span class="p">,</span> <span class="n">LOG_MIN</span><span class="p">,</span> <span class="n">LOG_MAX</span><span class="p">)</span>
+
+<span class="c1"># Tratamento NaN/Inf</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">nan</span><span class="o">=</span><span class="n">PRED_MIN</span><span class="p">,</span> <span class="n">posinf</span><span class="o">=</span><span class="n">PRED_MAX</span><span class="p">,</span> <span class="n">neginf</span><span class="o">=</span><span class="n">PRED_MIN</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="validacao">Validação<a class="headerlink" href="#validacao" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Método: TimeSeriesSplit (5 splits)</li>
+<li>Mais rígida que GroupKFold (sem garantia de representação setorial)</li>
+<li>Múltiplos seeds para robustez</li>
+</ul>
+<h2 id="resultados">Resultados<a class="headerlink" href="#resultados" title="Permanent link">&para;</a></h2>
+<h3 id="metricas-do-melhor-modelo">Métricas do Melhor Modelo<a class="headerlink" href="#metricas-do-melhor-modelo" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RMSE</td>
+<td>19.991,72</td>
+</tr>
+<tr>
+<td>MAE</td>
+<td>863,65</td>
+</tr>
+<tr>
+<td>MSE</td>
+<td>399.669.007</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(R^2\)</span></td>
+<td>0,9942</td>
+</tr>
+<tr>
+<td>Competition Score</td>
+<td>0,7821</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Resumo da Busca:</strong></p>
+<ul>
+<li>Total de combinações testadas: 36</li>
+<li>Parâmetros variados: hidden_layer_sizes (3), activation (2), alpha (3), batch_size (2), learning_rate (2)</li>
+<li>Seeds utilizados: 3</li>
+</ul>
+<h3 id="metricas-no-conjunto-de-treino">Métricas no Conjunto de Treino<a class="headerlink" href="#metricas-no-conjunto-de-treino" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RMSE (Treino)</td>
+<td>3.734,49</td>
+</tr>
+<tr>
+<td>MAE (Treino)</td>
+<td>863,65</td>
+</tr>
+<tr>
+<td>MSE (Treino)</td>
+<td>13.946.436</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(R^2\)</span> (Treino)</td>
+<td>0,9942</td>
+</tr>
+</tbody>
+</table>
+<h3 id="arquitetura-do-melhor-modelo">Arquitetura do Melhor Modelo<a class="headerlink" href="#arquitetura-do-melhor-modelo" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>Input (27 features)
+  ↓
+Dense (256 units, tanh)
+  ↓
+Dense (128 units, tanh)
+  ↓
+Dense (64 units, tanh)
+  ↓
+Output (1 unit)
+</code></pre></div>
+
+<p><strong>Hiperparâmetros Ótimos:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hidden Layers</td>
+<td>[256, 128, 64]</td>
+</tr>
+<tr>
+<td>Activation</td>
+<td>tanh</td>
+</tr>
+<tr>
+<td>Alpha (L2)</td>
+<td>0.0001</td>
+</tr>
+<tr>
+<td>Batch Size</td>
+<td>128</td>
+</tr>
+<tr>
+<td>Learning Rate</td>
+<td>0.001</td>
+</tr>
+<tr>
+<td>Seed</td>
+<td>42</td>
+</tr>
+<tr>
+<td>Early Stopping</td>
+<td>Sim (30 paciência)</td>
+</tr>
+<tr>
+<td>Max Iterations</td>
+<td>400</td>
+</tr>
+<tr>
+<td>Validation Fraction</td>
+<td>15%</td>
+</tr>
+<tr>
+<td>Solver</td>
+<td>adam</td>
+</tr>
+</tbody>
+</table>
+<h3 id="comparacao-com-versoes-anteriores">Comparação com Versões Anteriores<a class="headerlink" href="#comparacao-com-versoes-anteriores" title="Permanent link">&para;</a></h3>
+<h3 id="rmse-root-mean-squared-error">RMSE (Root Mean Squared Error)<a class="headerlink" href="#rmse-root-mean-squared-error" title="Permanent link">&para;</a></h3>
+<ul>
+<li>v1 (Baseline): 38.937,57</li>
+<li>v2 (Recomendado): 7.547,03</li>
+<li>v3 (Otimização): 19.991,72</li>
+</ul>
+<p>v3 ficou intermediário entre v1 e v2, sugerindo que nem sempre mais otimização = melhores resultados.</p>
+<h3 id="r2-coeficiente-de-determinacao"><span class="arithmatex">\(R^2\)</span> (Coeficiente de Determinação)<a class="headerlink" href="#r2-coeficiente-de-determinacao" title="Permanent link">&para;</a></h3>
+<ul>
+<li>v1 (Baseline): 0,5513</li>
+<li>v2 (Recomendado): 0,9763</li>
+<li>v3 (Otimização): 0,9942</li>
+</ul>
+<p>Curiosamente, o v3 explica MAIS variância (99,42%) que o v2 (97,63%) no conjunto de treino, mas o RMSE é pior. Isso sugere overfitting severo.</p>
+<h3 id="competition-score">Competition Score<a class="headerlink" href="#competition-score" title="Permanent link">&para;</a></h3>
+<ul>
+<li>v1: -</li>
+<li>v2: 0,9530</li>
+<li>v3: 0,7821</li>
+</ul>
+<p>v2 continua com o melhor desempenho na métrica da competição.</p>
+<h2 id="analise-de-resultados">Análise de Resultados<a class="headerlink" href="#analise-de-resultados" title="Permanent link">&para;</a></h2>
+<h3 id="overfitting-severo-em-v3">Overfitting Severo em v3<a class="headerlink" href="#overfitting-severo-em-v3" title="Permanent link">&para;</a></h3>
+<p>A discrepância entre <span class="arithmatex">\(R^2\)</span> alto (0,9942) e RMSE elevado (19.991,72) em comparação com o v2 revela overfitting:</p>
+<ul>
+<li>v3 se ajusta perfeitamente aos dados de treino</li>
+<li>Mas não generaliza bem para dados novos</li>
+<li>v2 com <span class="arithmatex">\(R^2\)</span>=0,9763 e RMSE=7.547,03 tem um melhor balanço</li>
+</ul>
+<h3 id="metricas-de-treino-vs-melhor-modelo">Métricas de Treino vs Melhor Modelo<a class="headerlink" href="#metricas-de-treino-vs-melhor-modelo" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>v3 Treino:        v3 Melhor Modelo:
+RMSE: 3.734,49    RMSE: 19.991,72  (5.36x pior)
+$R^2$: 0,9942        $R^2$: 0,9942       (mesma $R^2$)
+</code></pre></div>
+
+<p>A piora massiva em RMSE sem piora em <span class="arithmatex">\(R^2\)</span> confirma que o modelo se comporta de maneira muito diferente em dados não vistos.</p>
+<h3 id="por-que-o-v3-nao-superou-o-v2">Por que o v3 Não Superou o v2?<a class="headerlink" href="#por-que-o-v3-nao-superou-o-v2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Validação Inadequada</strong></p>
+<ul>
+<li>TimeSeriesSplit é menos apropriado para dados hierárquicos</li>
+<li>Sem garantia de representação setorial</li>
+<li>Possível data leakage entre setores</li>
+</ul>
+</li>
+<li>
+<p><strong>Regularização Excessiva</strong></p>
+<ul>
+<li>Alpha aumentado 10x (1e-5 → 0.0001)</li>
+<li>O modelo se tornou muito restritivo</li>
+<li>Possível underfitting</li>
+</ul>
+</li>
+<li>
+<p><strong>Redução do Learning Rate</strong></p>
+<ul>
+<li>0.01 → 0.001</li>
+<li>Convergência mais lenta</li>
+<li>Possível parada prematura</li>
+</ul>
+</li>
+<li>
+<p><strong>Overfitting da Busca</strong></p>
+<ul>
+<li>12 combinações em 5 folds podem levar a overfitting</li>
+<li>A melhor configuração encontrada não generalizou</li>
+</ul>
+</li>
+</ol>
+<h2 id="implicacoes">Implicações<a class="headerlink" href="#implicacoes" title="Permanent link">&para;</a></h2>
+<p>v3 agora fornece um conjunto completo de métricas:
+- RMSE: 19.991,72
+- MAE: 863,65
+- MSE: 399.669.007
+- <span class="arithmatex">\(R^2\)</span>: 0,9942
+- Competition Score: 0,7821</p>
+<h3 id="observacao-critica">Observação Crítica<a class="headerlink" href="#observacao-critica" title="Permanent link">&para;</a></h3>
+<p>Apesar do <span class="arithmatex">\(R^2\)</span> elevadíssimo (0,9942), o v3 tem um desempenho prático pior que o v2:
+- RMSE 2,65x pior que o v2
+- Competition Score 17% pior que o v2
+- Indica OVERFITTING severo apesar da regularização L2</p>
+<h2 id="conclusoes">Conclusões<a class="headerlink" href="#conclusoes" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Busca Extensiva</strong>: 36 combinações testadas com múltiplos seeds</li>
+<li><strong>Modelo Selecionado</strong>: Arquitetura com 3 camadas (256-128-64) e tanh</li>
+<li><strong>Desempenho</strong>: <span class="arithmatex">\(R^2\)</span> alto mas RMSE elevado → OVERFITTING</li>
+<li><strong>Insights Principais</strong>:<ul>
+<li>Otimização sem Feature Engineering não funciona</li>
+<li>Arquitetura profunda sofre com overfitting</li>
+<li>TimeSeriesSplit respeita a estrutura temporal, mas o v2 com GroupKFold foi melhor</li>
+<li>Feature Engineering (v2) foi mais efetivo que a otimização de parâmetros (v3)</li>
+<li><span class="arithmatex">\(R^2\)</span> não é uma métrica confiável para detectar overfitting em dados de séries temporais</li>
+</ul>
+</li>
+</ol>
+<p><strong>Métricas Completas Salvas em JSON</strong>:</p>
+<p>O notebook agora calcula e salva as seguintes métricas:</p>
+<ul>
+<li>RMSE (Root Mean Squared Error)</li>
+<li>MAE (Mean Absolute Error)</li>
+<li>MSE (Mean Squared Error)</li>
+<li><span class="arithmatex">\(R^2\)</span> (Coeficiente de Determinação)</li>
+<li>Competition Score (métrica customizada)</li>
+</ul>
+<p>Arquivo gerado: <code>metricas_v3.json</code></p>
+<h2 id="conclusoes_1">Conclusões<a class="headerlink" href="#conclusoes_1" title="Permanent link">&para;</a></h2>
+<p>O v3 serviu para explorar o espaço de hiperparâmetros, mas não produziu melhorias. O v2 permanece como a melhor opção para produção.</p>
+<hr />
+<p><strong>Próxima Seção</strong>: <a href="../../evaluation/metrics/">Avaliação - Métricas de Desempenho</a></p>
+<h2 id="galeria-de-graficos-v3">Galeria de Gráficos (v3)<a class="headerlink" href="#galeria-de-graficos-v3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Predito vs Real (treino): <img alt="pred_vs_true_v3" src="../../imgs/pred_vs_true_v3.png" /></li>
+<li>Distribuição dos Resíduos: <img alt="residuos_v3" src="../../imgs/residuos_v3.png" /></li>
+<li>Curva de Perda (v3): <img alt="loss_curve_v3" src="../../imgs/loss_curve_v3.png" /></li>
+<li>Importância por Permutação (Top 20): <img alt="perm_importance_v3" src="../../imgs/perm_importance_v3.png" /></li>
+<li>Melhor Competition Score por Iteração da Busca: <img alt="oof_por_iteracao_v3" src="../../imgs/oof_por_iteracao.png" /></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

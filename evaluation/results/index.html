@@ -1,0 +1,1546 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação acadêmica - Análise e modelagem de demanda no mercado imobiliário chinês">
+      
+      
+      
+      
+        <link rel="prev" href="../comparison/">
+      
+      
+        <link rel="next" href="../../conclusion/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Resultados Finais - Previsão de Demanda Imobiliária Chinesa</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#resultados-finais" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Previsão de Demanda Imobiliária Chinesa" class="md-header__button md-logo" aria-label="Previsão de Demanda Imobiliária Chinesa" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Previsão de Demanda Imobiliária Chinesa
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Resultados Finais
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../project/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contexto do Projeto
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../dataset/overview/" class="md-tabs__link">
+          
+  
+  
+  Dataset e Preparação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../training/overview/" class="md-tabs__link">
+          
+  
+  
+  Modelos de Training
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../metrics/" class="md-tabs__link">
+          
+  
+  
+  Avaliação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../conclusion/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Conclusões
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Previsão de Demanda Imobiliária Chinesa" class="md-nav__button md-logo" aria-label="Previsão de Demanda Imobiliária Chinesa" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Previsão de Demanda Imobiliária Chinesa
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Início
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contexto do Projeto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Dataset e Preparação
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Dataset e Preparação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dataset/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Descrição dos Dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dataset/eda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exploração Inicial
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Modelos de Training
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Modelos de Training
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../training/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visão Geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../training/v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modelo v1 - Baseline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../training/v2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modelo v2 - Feature Engineering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../training/v3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modelo v3 - Otimização
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Avaliação
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Avaliação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Métricas de Desempenho
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comparison/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Comparação dos Modelos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Resultados Finais
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Resultados Finais
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#galeria-rapida-figuras" class="md-nav__link">
+    <span class="md-ellipsis">
+      Galeria Rápida (Figuras)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusoes-principais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusoes Principais
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conclusoes Principais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-superioridade-de-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Superioridade de v2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-importancia-do-feature-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Importancia do Feature Engineering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-limites-da-otimizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Limites da Otimizacao
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recomendacoes-praticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recomendacoes Praticas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recomendacoes Praticas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#para-producao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para Producao
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#para-pesquisa-futura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para Pesquisa Futura
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#impacto-quantitativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impacto Quantitativo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Impacto Quantitativo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ganho-total-alcancado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ganho Total Alcancado
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reducao-de-erro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reducao de Erro
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custo-beneficio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custo-Beneficio
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contribuicoes-academicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contribuicoes Academicas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Contribuicoes Academicas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-feature-engineering-para-series-temporais-hierarquicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Feature Engineering para Series Temporais Hierarquicas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-validacao-apropriada" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Validacao Apropriada
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-trade-offs-de-complexidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Trade-offs de Complexidade
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquivos-de-saida" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquivos de Saida
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arquivos de Saida">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modelos-treinados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modelos Treinados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metricas-calculadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metricas Calculadas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predicoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Predicoes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metricas-do-melhor-modelo-v3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metricas do Melhor Modelo v3
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparacao-completa-v1-vs-v2-vs-v3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparacao Completa: v1 vs v2 vs v3
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comparacao Completa: v1 vs v2 vs v3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabela-de-metricas-finais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tabela de Metricas Finais
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resumo-de-desempenho" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resumo de Desempenho
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resumo de Desempenho">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#v1-baseline" class="md-nav__link">
+    <span class="md-ellipsis">
+      v1 - Baseline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v2-recomendado-melhor" class="md-nav__link">
+    <span class="md-ellipsis">
+      v2 - Recomendado (MELHOR)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v3-otimizacao-overfitting" class="md-nav__link">
+    <span class="md-ellipsis">
+      v3 - Otimizacao (Overfitting)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analise-comparativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analise Comparativa
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analise Comparativa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#progressao-de-rmse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Progressao de RMSE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#progressao-de-r2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Progressao de R²
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competition-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      Competition Score
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusoes-principais_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusoes Principais
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insights-tecnicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Insights Técnicos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recomendacao-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recomendacao Final
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limitacoes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trabalho-futuro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trabalho Futuro
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conclusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Conclusões
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="resultados-finais">Resultados Finais<a class="headerlink" href="#resultados-finais" title="Permanent link">&para;</a></h1>
+<h2 id="galeria-rapida-figuras">Galeria Rápida (Figuras)<a class="headerlink" href="#galeria-rapida-figuras" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Predito vs Real (v2): <img alt="pred_vs_true" src="../../imgs/pred_vs_true.png" /></li>
+<li>Curva de Perda (v2): <img alt="loss_curve" src="../../imgs/loss_curve.png" /></li>
+<li>Resíduos (v2): <img alt="residuos" src="../../imgs/residuos.png" /></li>
+<li>Importância por Permutação (v2): <img alt="perm_importance" src="../../imgs/perm_importance.png" /></li>
+<li>Predito vs Real (v3): <img alt="pred_vs_true_v3" src="../../imgs/pred_vs_true_v3.png" /></li>
+<li>Curva de Perda (v3): <img alt="loss_curve_v3" src="../../imgs/loss_curve_v3.png" /></li>
+<li>Resíduos (v3): <img alt="residuos_v3" src="../../imgs/residuos_v3.png" /></li>
+<li>Importância por Permutação (v3): <img alt="perm_importance_v3" src="../../imgs/perm_importance_v3.png" /></li>
+<li>Evolução do Best Competition Score por Iteração (v3): <img alt="oof_por_iteracao" src="../../imgs/oof_por_iteracao.png" /></li>
+</ul>
+<h2 id="conclusoes-principais">Conclusoes Principais<a class="headerlink" href="#conclusoes-principais" title="Permanent link">&para;</a></h2>
+<h3 id="1-superioridade-de-v2">1. Superioridade de v2<a class="headerlink" href="#1-superioridade-de-v2" title="Permanent link">&para;</a></h3>
+<p>O modelo v2 demonstrou a melhor performance em todas as metricas:</p>
+<ul>
+<li><strong>R2 = 0,9763</strong>: Explica 97,63% da variancia nos dados</li>
+<li><strong>RMSE = 7.547</strong>: Erro medio 80,6% menor que v1</li>
+<li><strong>MAE = 1.627</strong>: Erro tipico 88,0% menor que v1</li>
+<li><strong>Competition Score = 0,9530</strong>: Acuracia de 95,3%</li>
+</ul>
+<h3 id="2-importancia-do-feature-engineering">2. Importancia do Feature Engineering<a class="headerlink" href="#2-importancia-do-feature-engineering" title="Permanent link">&para;</a></h3>
+<p>A melhoria massiva de v1 para v2 foi alcancada primariamente atraves de:</p>
+<ol>
+<li><strong>Lags Temporais</strong>: Capturaram dependencias entre periodos</li>
+<li><strong>Medias Moveis</strong>: Suavizaram ruido e identificaram tendencias</li>
+<li><strong>Features Engineered</strong>: Reducoes de dimensionalidade (63 -&gt; 27)</li>
+<li><strong>Validacao Apropriada</strong>: GroupKFold por setor evitou data leakage</li>
+</ol>
+<h3 id="3-limites-da-otimizacao">3. Limites da Otimizacao<a class="headerlink" href="#3-limites-da-otimizacao" title="Permanent link">&para;</a></h3>
+<p>v3 demonstrou que busca extensiva de hiperparametros nao garante melhoria:</p>
+<ul>
+<li>Piorou 165% em RMSE</li>
+<li>Reduziu 16,9pp em Competition Score</li>
+<li>Consumiu 10x mais tempo de computacao</li>
+</ul>
+<h2 id="recomendacoes-praticas">Recomendacoes Praticas<a class="headerlink" href="#recomendacoes-praticas" title="Permanent link">&para;</a></h2>
+<h3 id="para-producao">Para Producao<a class="headerlink" href="#para-producao" title="Permanent link">&para;</a></h3>
+<p><strong>RECOMENDACAO: Usar Modelo v2</strong></p>
+<p>Razoes:
+1. Melhor performance comprovada
+2. Tempo de treino aceitavel (15-20 min)
+3. Interpretabilidade clara (27 features com significado)
+4. Validacao apropriada (respeta hierarquia setorial)</p>
+<h3 id="para-pesquisa-futura">Para Pesquisa Futura<a class="headerlink" href="#para-pesquisa-futura" title="Permanent link">&para;</a></h3>
+<p>Se buscar melhorias alem de v2:</p>
+<ol>
+<li><strong>Mantenha GroupKFold</strong>: Nao volte a TimeSeriesSplit</li>
+<li><strong>Explore novos modelos</strong>: XGBoost, LightGBM, ensemble methods</li>
+<li><strong>Feature engineering incremental</strong>: Adicione features de dominio</li>
+<li><strong>Dados externos</strong>: Incorpore indicadores macroeconômicos</li>
+<li><strong>Analise setorial</strong>: Modelos especificos para setores problematicos</li>
+</ol>
+<h2 id="impacto-quantitativo">Impacto Quantitativo<a class="headerlink" href="#impacto-quantitativo" title="Permanent link">&para;</a></h2>
+<h3 id="ganho-total-alcancado">Ganho Total Alcancado<a class="headerlink" href="#ganho-total-alcancado" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>Baseline (v1): R² = 0,5513
+Final (v2):    R² = 0,9763
+Ganho:         77,0 pontos percentuais (139% relativo)
+</code></pre></div>
+
+<h3 id="reducao-de-erro">Reducao de Erro<a class="headerlink" href="#reducao-de-erro" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>RMSE Baseline:   38.937,57
+RMSE Final:      7.547,03
+Reducao:         80,6%
+</code></pre></div>
+
+<h3 id="custo-beneficio">Custo-Beneficio<a class="headerlink" href="#custo-beneficio" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>v1</th>
+<th>v2</th>
+<th>Diferenca</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Performance (R2)</td>
+<td>0,55</td>
+<td>0,98</td>
+<td>+77,0pp</td>
+</tr>
+<tr>
+<td>Tempo Treino</td>
+<td>10 min</td>
+<td>15 min</td>
+<td>+5 min (50%)</td>
+</tr>
+<tr>
+<td>Complexidade</td>
+<td>Baixa</td>
+<td>Media</td>
+<td>Interpretavel</td>
+</tr>
+</tbody>
+</table>
+<h2 id="contribuicoes-academicas">Contribuicoes Academicas<a class="headerlink" href="#contribuicoes-academicas" title="Permanent link">&para;</a></h2>
+<h3 id="1-feature-engineering-para-series-temporais-hierarquicas">1. Feature Engineering para Series Temporais Hierarquicas<a class="headerlink" href="#1-feature-engineering-para-series-temporais-hierarquicas" title="Permanent link">&para;</a></h3>
+<p>Demonstrou a efetividade de:
+- Lags multi-escala (1, 3, 6 meses)
+- Rolling aggregations (medias moveis)
+- Validacao respeitando hierarquia de dados</p>
+<h3 id="2-validacao-apropriada">2. Validacao Apropriada<a class="headerlink" href="#2-validacao-apropriada" title="Permanent link">&para;</a></h3>
+<p>Mostrou que escolher GroupKFold em vez de TimeSeriesSplit generico melhorou desempenho para dados hierarquicos.</p>
+<h3 id="3-trade-offs-de-complexidade">3. Trade-offs de Complexidade<a class="headerlink" href="#3-trade-offs-de-complexidade" title="Permanent link">&para;</a></h3>
+<p>Ilustrou que sofisticacao nao e equivalente a desempenho. Regularizacao excessiva prejudicou o modelo.</p>
+<h2 id="arquivos-de-saida">Arquivos de Saida<a class="headerlink" href="#arquivos-de-saida" title="Permanent link">&para;</a></h2>
+<h3 id="modelos-treinados">Modelos Treinados<a class="headerlink" href="#modelos-treinados" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>mlp_model_v1.joblib</code>: Modelo baseline</li>
+<li><code>mlp_model_v2.joblib</code>: Modelo recomendado</li>
+<li><code>mlp_model_v3.joblib</code>: Modelo otimizado (para referencia)</li>
+</ul>
+<h3 id="metricas-calculadas">Metricas Calculadas<a class="headerlink" href="#metricas-calculadas" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>metricas_v1.json</code>: Desempenho de v1</li>
+<li><code>metricas_v2.json</code>: Desempenho de v2 com por-fold</li>
+<li><code>metricas_v3.json</code>: Desempenho de v3 com grid search</li>
+</ul>
+<h3 id="predicoes">Predicoes<a class="headerlink" href="#predicoes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>submission_v2.csv</code>: Predicoes recomendadas</li>
+</ul>
+<h3 id="metricas-do-melhor-modelo-v3">Metricas do Melhor Modelo v3<a class="headerlink" href="#metricas-do-melhor-modelo-v3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Metrica</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RMSE</td>
+<td>19.991,72</td>
+</tr>
+<tr>
+<td>MAE</td>
+<td>863,65</td>
+</tr>
+<tr>
+<td>MSE</td>
+<td>399.669.007</td>
+</tr>
+<tr>
+<td>R²</td>
+<td>0,9942</td>
+</tr>
+<tr>
+<td>Competition Score</td>
+<td>0,7821</td>
+</tr>
+</tbody>
+</table>
+<h2 id="comparacao-completa-v1-vs-v2-vs-v3">Comparacao Completa: v1 vs v2 vs v3<a class="headerlink" href="#comparacao-completa-v1-vs-v2-vs-v3" title="Permanent link">&para;</a></h2>
+<h3 id="tabela-de-metricas-finais">Tabela de Metricas Finais<a class="headerlink" href="#tabela-de-metricas-finais" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Metrica</th>
+<th>v1 (Baseline)</th>
+<th>v2 (Recomendado)</th>
+<th>v3 (Otimizacao)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RMSE</td>
+<td>38.937,57</td>
+<td>7.547,03</td>
+<td>19.991,72</td>
+</tr>
+<tr>
+<td>MAE</td>
+<td>13.565,70</td>
+<td>1.626,75</td>
+<td>863,65</td>
+</tr>
+<tr>
+<td>MSE</td>
+<td>-</td>
+<td>-</td>
+<td>399.669.007</td>
+</tr>
+<tr>
+<td>R²</td>
+<td>0,5513</td>
+<td>0,9763</td>
+<td>0,9942</td>
+</tr>
+<tr>
+<td>Competition Score</td>
+<td>-</td>
+<td>0,9530</td>
+<td>0,7821</td>
+</tr>
+</tbody>
+</table>
+<h3 id="resumo-de-desempenho">Resumo de Desempenho<a class="headerlink" href="#resumo-de-desempenho" title="Permanent link">&para;</a></h3>
+<h4 id="v1-baseline">v1 - Baseline<a class="headerlink" href="#v1-baseline" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>RMSE</strong>: 38.937,57 (linha de base)</li>
+<li><strong>MAE</strong>: 13.565,70</li>
+<li><strong>R²</strong>: 0,5513 (explica ~55% da variância)</li>
+<li>Modelo simples sem feature engineering</li>
+</ul>
+<h4 id="v2-recomendado-melhor">v2 - Recomendado (MELHOR)<a class="headerlink" href="#v2-recomendado-melhor" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>RMSE</strong>: 7.547,03 (82% melhor que v1)</li>
+<li><strong>MAE</strong>: 1.626,75 (88% melhor que v1)</li>
+<li><strong>R²</strong>: 0,9763 (explica ~98% da variância)</li>
+<li><strong>Competition Score</strong>: 0,9530</li>
+<li>Feature engineering avançado com lags e médias móveis</li>
+<li>Validação por setor (GroupKFold)</li>
+<li>Melhor generalização</li>
+</ul>
+<h4 id="v3-otimizacao-overfitting">v3 - Otimizacao (Overfitting)<a class="headerlink" href="#v3-otimizacao-overfitting" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>RMSE</strong>: 19.991,72 (intermediário entre v1 e v2)</li>
+<li><strong>MAE</strong>: 863,65 (pior que v2)</li>
+<li><strong>MSE</strong>: 399.669.007</li>
+<li><strong>R²</strong>: 0,9942 (MAIS ALTA que v2!)</li>
+<li><strong>Competition Score</strong>: 0,7821</li>
+<li>Busca sistemática de 36 hiperparâmetros com 3 seeds</li>
+<li>Melhor configuração: [256, 128, 64] com tanh</li>
+<li><strong>PROBLEMA</strong>: R² elevada mas RMSE ruim = OVERFITTING SEVERO</li>
+</ul>
+<h3 id="analise-comparativa">Analise Comparativa<a class="headerlink" href="#analise-comparativa" title="Permanent link">&para;</a></h3>
+<h4 id="progressao-de-rmse">Progressao de RMSE<a class="headerlink" href="#progressao-de-rmse" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code>v1: 38.937,57 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ (referencia)
+v3: 19.991,72 ━━━━━━━━━━━━ (intermediário)
+v2:  7.547,03 ━━━ (melhor!)
+</code></pre></div>
+
+<h4 id="progressao-de-r2">Progressao de R²<a class="headerlink" href="#progressao-de-r2" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code>v1: 0,5513  ████ 
+v2: 0,9763  ██████████████████ (excelente!)
+v3: 0,9942  ██████████████████ (parece melhor mas OVERFITTING!)
+</code></pre></div>
+
+<h4 id="competition-score">Competition Score<a class="headerlink" href="#competition-score" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code>v2: 0,9530 ████████████████████ (excelente)
+v3: 0,7821 ████████████ (bom)
+v1: -      - (não calculado)
+</code></pre></div>
+
+<h3 id="conclusoes-principais_1">Conclusoes Principais<a class="headerlink" href="#conclusoes-principais_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>v2 é a solução recomendada</strong></li>
+<li>Melhor RMSE (7.547,03)</li>
+<li>Melhor R² com GENERALIZAÇÃO (0,9763)</li>
+<li>Melhor Competition Score (0,9530)</li>
+<li>
+<p>Feature engineering provou ser mais efetivo</p>
+</li>
+<li>
+<p><strong>v3 sofre com OVERFITTING severo</strong></p>
+</li>
+<li>R² mais alta (0,9942) que v2 mas RMSE 2,65x PIOR</li>
+<li>RMSE no teste: 19.991,72 vs RMSE no treino: 3.734,49</li>
+<li>A discrepancia revela que o modelo não generaliza</li>
+<li>
+<p>Lições: R² NÃO é métrica confiável para séries temporais</p>
+</li>
+<li>
+<p><strong>v1 serviu como baseline</strong></p>
+</li>
+<li>RMSE: 38.937,57</li>
+<li>Demonstrou a necessidade de melhorias</li>
+<li>v2 alcançou 81% de melhoria sobre v1</li>
+</ol>
+<h3 id="insights-tecnicos">Insights Técnicos<a class="headerlink" href="#insights-tecnicos" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Feature Engineering &gt; Otimizacao</strong>: v2 com feature engineering bateu v3 com busca exaustiva</li>
+<li><strong>Validacao Importa</strong>: GroupKFold (v2) foi melhor que TimeSeriesSplit (v3)</li>
+<li><strong>Arquitetura Profunda com Overfitting</strong>: v3 com 3 camadas [256,128,64] ajusta perfeitamente ao treino mas falha no teste</li>
+<li><strong>R² é Enganosa</strong>: Métrica R² alta não garante boa generalização em séries temporais</li>
+<li><strong>Regularizacao Insuficiente</strong>: Alpha=0.0001 não foi forte o bastante contra overfitting em v3</li>
+</ul>
+<h3 id="recomendacao-final">Recomendacao Final<a class="headerlink" href="#recomendacao-final" title="Permanent link">&para;</a></h3>
+<p><strong>✓ Submeter v2 para a competição Kaggle</strong>
+- Melhor RMSE e Competition Score
+- Melhor generalização
+- Feature engineering é estratégia vencedora</p>
+<h2 id="limitacoes">Limitacoes<a class="headerlink" href="#limitacoes" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Dados limitados</strong>: 5.433 observacoes em 67 meses</li>
+<li><strong>Sem dados externos</strong>: Indicadores macroeconômicos indisponiveis</li>
+<li><strong>Dominio nao explorado</strong>: Desafios specificos do mercado chines nao totalmente capturados</li>
+<li><strong>Horizonte temporal</strong>: Sem validacao em periodos futuros</li>
+</ol>
+<h2 id="trabalho-futuro">Trabalho Futuro<a class="headerlink" href="#trabalho-futuro" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Incorporar dados de POI disponíveis</li>
+<li>Pesquisar dinâmicas do mercado imobiliário chines</li>
+<li>Explorar modelos de aprendizado profundo (LSTM)</li>
+<li>Implementar sistema de monitoramento em producao</li>
+<li>A/B testing de v2 vs v3 em dados reais</li>
+</ol>
+<hr />
+<p><strong>Status</strong>: Analise Completa<br />
+<strong>Data</strong>: 2025-10-25<br />
+<strong>Proxima Secao</strong>: <a href="../../conclusion/">Conclusoes</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

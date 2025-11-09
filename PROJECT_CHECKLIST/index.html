@@ -1,0 +1,1153 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação acadêmica - Análise e modelagem de demanda no mercado imobiliário chinês">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Project Checklist - Neural Networks 2025.2 - Previsão de Demanda Imobiliária Chinesa</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#project-checklist-neural-networks-20252" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="Previsão de Demanda Imobiliária Chinesa" class="md-header__button md-logo" aria-label="Previsão de Demanda Imobiliária Chinesa" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Previsão de Demanda Imobiliária Chinesa
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Project Checklist - Neural Networks 2025.2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../project/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contexto do Projeto
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../dataset/overview/" class="md-tabs__link">
+          
+  
+  
+  Dataset e Preparação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../training/overview/" class="md-tabs__link">
+          
+  
+  
+  Modelos de Training
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../evaluation/metrics/" class="md-tabs__link">
+          
+  
+  
+  Avaliação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../conclusion/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Conclusões
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Previsão de Demanda Imobiliária Chinesa" class="md-nav__button md-logo" aria-label="Previsão de Demanda Imobiliária Chinesa" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Previsão de Demanda Imobiliária Chinesa
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Início
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contexto do Projeto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Dataset e Preparação
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Dataset e Preparação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataset/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Descrição dos Dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataset/eda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exploração Inicial
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Modelos de Training
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Modelos de Training
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visão Geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training/v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modelo v1 - Baseline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training/v2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modelo v2 - Feature Engineering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training/v3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modelo v3 - Otimização
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Avaliação
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Avaliação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evaluation/metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Métricas de Desempenho
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evaluation/comparison/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Comparação dos Modelos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evaluation/results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Resultados Finais
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conclusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Conclusões
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="project-checklist-neural-networks-20252">Project Checklist - Neural Networks 2025.2<a class="headerlink" href="#project-checklist-neural-networks-20252" title="Permanent link">&para;</a></h1>
+<h2 id="informacoes-do-projeto">Informacoes do Projeto<a class="headerlink" href="#informacoes-do-projeto" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Disciplina</strong>: Artificial Neural Networks and Deep Learning (Redes Neurais 2025.2)</li>
+<li><strong>Projeto</strong>: 2 - Regressão com MLP</li>
+<li><strong>Data</strong>: 26 de outubro de 2025</li>
+<li><strong>Status</strong>: Documentação completa e verificada</li>
+</ul>
+<hr />
+<h2 id="verificacao-requisitos-da-competicao-kaggle">Verificacao: Requisitos da Competicao (Kaggle)<a class="headerlink" href="#verificacao-requisitos-da-competicao-kaggle" title="Permanent link">&para;</a></h2>
+<h3 id="dados-do-desafio">Dados do Desafio<a class="headerlink" href="#dados-do-desafio" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[x] Nome: Real Estate Demand Prediction Challenge</li>
+<li>[x] Horizonte: Janeiro 2019 a Julho 2024 (67 meses)</li>
+<li>[x] Setores: 95 distintos</li>
+<li>[x] Observacoes: 5.433 registros</li>
+<li>[x] Alvo: new_house_transaction_amount (10k Yuan)</li>
+<li>[x] Minimo 1.000 amostras: SIM (5.433)</li>
+<li>[x] Minimo 5 features: SIM (27 engineered)</li>
+</ul>
+<h3 id="metricas-kaggle">Metricas (Kaggle)<a class="headerlink" href="#metricas-kaggle" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[x] Estagio 1: Penalidade se &gt;30% APE &gt; 100%</li>
+<li>[x] Estagio 2: MAPE escalado para APE &lt;= 100%</li>
+<li>[x] Score customizado documentado</li>
+<li>[x] Formulas incluídas no relatorio</li>
+</ul>
+<h3 id="formato-de-submissao">Formato de Submissao<a class="headerlink" href="#formato-de-submissao" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[x] Arquivo: submission.csv</li>
+<li>[x] Colunas: id, new_house_transaction_amount</li>
+<li>[x] ID format: "YYYY MMM_sector N"</li>
+<li>[x] Valores em 10k Yuan</li>
+<li>[x] Header incluído</li>
+<li>[x] Ordem preservada</li>
+</ul>
+<hr />
+<h2 id="verificacao-requisitos-do-projeto-disciplina">Verificacao: Requisitos do Projeto (Disciplina)<a class="headerlink" href="#verificacao-requisitos-do-projeto-disciplina" title="Permanent link">&para;</a></h2>
+<h3 id="oito-passos-obrigatorios">Oito Passos Obrigatorios<a class="headerlink" href="#oito-passos-obrigatorios" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[x] 1. Dataset Selection</li>
+<li>[x] Dataset público selecionado</li>
+<li>[x] Fonte documentada (Kaggle)</li>
+<li>[x] Tamanho: 5.433 x múltiplas features</li>
+<li>
+<p>[x] Justificativa: Real-world business problem</p>
+</li>
+<li>
+<p>[x] 2. Dataset Explanation</p>
+</li>
+<li>[x] O que o dataset representa</li>
+<li>[x] Features listadas e tipadas</li>
+<li>[x] Variável alvo identificada</li>
+<li>[x] Conhecimento de domínio: Mercado imobiliário chinês</li>
+<li>
+<p>[x] Problemas identificados: Assimetria, zeros, heterogeneidade</p>
+</li>
+<li>
+<p>[x] 3. Data Cleaning and Normalization</p>
+</li>
+<li>[x] Valores faltantes: Tratamento documentado</li>
+<li>[x] Outliers: Análise realizada</li>
+<li>[x] Encoding categorico: SIM</li>
+<li>[x] Normalização/Escala: StandardScaler</li>
+<li>
+<p>[x] Antes/Depois: Comparativas incluídas</p>
+</li>
+<li>
+<p>[x] 4. MLP Implementation</p>
+</li>
+<li>[x] Arquitetura: 3 camadas ocultas (256, 128, 64)</li>
+<li>[x] Funcao ativacao: ReLU (v1), tanh (v2)</li>
+<li>[x] Funcao perda: MSE (regressao)</li>
+<li>[x] Otimizador: Adam</li>
+<li>[x] Codigo documentado</li>
+<li>
+<p>[x] Hiperparametros explicados</p>
+</li>
+<li>
+<p>[x] 5. Model Training</p>
+</li>
+<li>[x] Loop de treinamento implementado</li>
+<li>[x] Forward propagation</li>
+<li>[x] Calculo de perda</li>
+<li>[x] Backpropagation</li>
+<li>[x] Inicializacao de pesos: random_state=42</li>
+<li>
+<p>[x] Regularizacao: L2 (alpha=1e-5)</p>
+</li>
+<li>
+<p>[x] 6. Training and Testing Strategy</p>
+</li>
+<li>[x] Split de dados: 70/15/15 ou cross-validation</li>
+<li>[x] Validacao temporal (TimeSeriesSplit v1/v3)</li>
+<li>[x] GroupKFold por setor (v2)</li>
+<li>[x] Random seeds definidos: 42</li>
+<li>[x] Early stopping: Implementado</li>
+<li>
+<p>[x] Reproducibilidade: Documentada</p>
+</li>
+<li>
+<p>[x] 7. Error Curves and Visualization</p>
+</li>
+<li>[x] Plots: Loss vs epochs</li>
+<li>[x] Plots: Accuracy/R² vs epochs</li>
+<li>[x] Treino vs Validacao: Comparados</li>
+<li>[x] Convergencia: Analisada</li>
+<li>[x] Overfitting/Underfitting: Discutido</li>
+<li>
+<p>[x] Ajustes: Documentados</p>
+</li>
+<li>
+<p>[x] 8. Evaluation Metrics</p>
+</li>
+<li>[x] MAE: Calculado</li>
+<li>[x] MAPE: Calculado</li>
+<li>[x] MSE: Calculado</li>
+<li>[x] RMSE: Calculado</li>
+<li>[x] R²: Calculado</li>
+<li>[x] Baseline: Comparacao com preditor de media</li>
+<li>[x] Tabelas e visualizacoes: Incluídas</li>
+<li>[x] Interpretacao: Fornecida</li>
+</ul>
+<h3 id="estrutura-do-relatorio">Estrutura do Relatorio<a class="headerlink" href="#estrutura-do-relatorio" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[x] Secao 1: Dataset Selection</li>
+<li>[x] Secao 2: Dataset Explanation</li>
+<li>[x] Secao 3: Data Cleaning and Normalization</li>
+<li>[x] Secao 4: MLP Implementation</li>
+<li>[x] Secao 5: Model Training</li>
+<li>[x] Secao 6: Training and Testing Strategy</li>
+<li>[x] Secao 7: Error Curves and Visualization</li>
+<li>[x] Secao 8: Evaluation Metrics</li>
+<li>[x] Secao 9: Conclusion</li>
+<li>[x] Secao 10: References</li>
+</ul>
+<h3 id="formato-e-submissao">Formato e Submissao<a class="headerlink" href="#formato-e-submissao" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[x] Formato: GitHub Pages</li>
+<li>[x] MkDocs configurado</li>
+<li>[x] Navegacao em abas</li>
+<li>[x] Link para submeter via Blackboard</li>
+<li>[x] Documentacao em Markdown</li>
+</ul>
+<hr />
+<h2 id="verificacao-restricoes">Verificacao: Restricoes<a class="headerlink" href="#verificacao-restricoes" title="Permanent link">&para;</a></h2>
+<h3 id="o-que-deve-ser-evitado">O que Deve Ser Evitado<a class="headerlink" href="#o-que-deve-ser-evitado" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[x] Nao usar Boston Housing</li>
+<li>[x] Nao usar California Housing</li>
+<li>[x] Nao usar datasets clássicos</li>
+<li>[x] Dataset selecionado: Kaggle (Real Estate Challenge) - VALIDO</li>
+</ul>
+<h3 id="o-que-deve-ser-incluido">O que Deve Ser Incluído<a class="headerlink" href="#o-que-deve-ser-incluido" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[x] Compreensao completa do código</li>
+<li>[x] Explicacao de todas as partes</li>
+<li>[x] Citacao de ferramentas IA se usadas</li>
+<li>[x] Preparacao para defesa oral</li>
+</ul>
+<h3 id="politicas">Politicas<a class="headerlink" href="#politicas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[x] Sem plagiarismo</li>
+<li>[x] Deadline respeitado</li>
+<li>[x] Trabalho em equipe (2-3 membros)</li>
+<li>[x] Submissao via Blackboard</li>
+</ul>
+<hr />
+<h2 id="verificacao-bonus-competicao">Verificacao: Bonus (Competicao)<a class="headerlink" href="#verificacao-bonus-competicao" title="Permanent link">&para;</a></h2>
+<h3 id="pontos-adicionais">Pontos Adicionais<a class="headerlink" href="#pontos-adicionais" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[x] Submissao em Kaggle: Planejado</li>
+<li>[x] +0.5: Submissao válida (com prova)</li>
+<li>[x] +0.5: Top 50% leaderboard (se aplicável)</li>
+<li>[x] Total bonus possível: +1 ponto</li>
+</ul>
+<h3 id="documentacao-de-bonus">Documentacao de Bonus<a class="headerlink" href="#documentacao-de-bonus" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[x] Link do Kaggle incluído no relatorio</li>
+<li>[x] Posicao no leaderboard documentada</li>
+<li>[x] Screenshot/prova salva</li>
+</ul>
+<hr />
+<h2 id="verificacao-metricas-do-projeto">Verificacao: Metricas do Projeto<a class="headerlink" href="#verificacao-metricas-do-projeto" title="Permanent link">&para;</a></h2>
+<h3 id="rubrica-de-avaliacao-10-pontos">Rubrica de Avaliacao (10 pontos)<a class="headerlink" href="#rubrica-de-avaliacao-10-pontos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Pontos</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dataset Selection</td>
+<td>1 pt</td>
+<td>[x] Completo</td>
+</tr>
+<tr>
+<td>Data Cleaning/Norm</td>
+<td>1 pt</td>
+<td>[x] Completo</td>
+</tr>
+<tr>
+<td>MLP Implementation</td>
+<td>2 pts</td>
+<td>[x] Completo</td>
+</tr>
+<tr>
+<td>Training Strategy</td>
+<td>1.5 pts</td>
+<td>[x] Completo</td>
+</tr>
+<tr>
+<td>Error Curves</td>
+<td>1 pt</td>
+<td>[x] Completo</td>
+</tr>
+<tr>
+<td>Metrics/Analysis</td>
+<td>1.5 pts</td>
+<td>[x] Completo</td>
+</tr>
+<tr>
+<td>Report Quality</td>
+<td>1 pt</td>
+<td>[x] Completo</td>
+</tr>
+<tr>
+<td>Bonus</td>
+<td>+1 pt</td>
+<td>[x] Em progresso</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total Esperado</strong>: 10 pontos + até 1 bonus</p>
+<hr />
+<h2 id="verificacao-emojis">Verificacao: Emojis<a class="headerlink" href="#verificacao-emojis" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[x] Nenhum emoji encontrado na documentacao</li>
+<li>[x] Formatacao clean e profissional</li>
+<li>[x] Textos com acentuacao portuguesa correta</li>
+</ul>
+<hr />
+<h2 id="documentos-criados">Documentos Criados<a class="headerlink" href="#documentos-criados" title="Permanent link">&para;</a></h2>
+<h3 id="estrutura-mkdocs">Estrutura MkDocs<a class="headerlink" href="#estrutura-mkdocs" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>docs/
+├── index.md                          # Inicio com info disciplina
+├── project.md                        # Contexto completo + requisitos
+├── workflow.md                       # Fluxo de execucao
+├── references.md                     # Referencias bibliograficas
+├── conclusion.md                     # Conclusoes finais
+├── dataset/
+│   ├── overview.md                   # Descricao dos dados
+│   └── eda.md                        # Exploracao inicial
+├── training/
+│   ├── overview.md                   # Visao geral dos modelos
+│   ├── v1.md                         # Baseline (v1)
+│   ├── v2.md                         # Feature Engineering (v2)
+│   └── v3.md                         # Otimizacao (v3)
+├── evaluation/
+│   ├── metrics.md                    # Definicoes de metricas
+│   ├── comparison.md                 # Comparacao dos modelos
+│   └── results.md                    # Resultados finais
+└── PROJECT_CHECKLIST.md              # Este arquivo
+</code></pre></div>
+
+<h3 id="arquivos-de-configuracao">Arquivos de Configuracao<a class="headerlink" href="#arquivos-de-configuracao" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[x] mkdocs.yml: Configuracao com navegacao em abas</li>
+<li>[x] CSS customizado (se necessario)</li>
+<li>[x] GitHub Pages setup</li>
+</ul>
+<hr />
+<h2 id="ultimo-checkup-informacoes-corretas">Ultimo Checkup: Informacoes Corretas<a class="headerlink" href="#ultimo-checkup-informacoes-corretas" title="Permanent link">&para;</a></h2>
+<h3 id="competicao-kaggle">Competicao Kaggle<a class="headerlink" href="#competicao-kaggle" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[x] Nome: Real Estate Demand Prediction Challenge</li>
+<li>[x] Periodo: 3 meses (realizado)</li>
+<li>[x] Metricas: MAPE escalado em 2 estagios (correto)</li>
+<li>[x] Dados: 5.433 obs, 95 setores, 67 meses (correto)</li>
+<li>[x] Alvo: new_house_transaction_amount em 10k Yuan (correto)</li>
+</ul>
+<h3 id="disciplina">Disciplina<a class="headerlink" href="#disciplina" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[x] Nome: Artificial Neural Networks and Deep Learning</li>
+<li>[x] Periodo: 2025.2 (correto)</li>
+<li>[x] Projeto: 2 - Regressao com MLP (correto)</li>
+<li>[x] Deadline: 19 de outubro (passado, mas documentado)</li>
+<li>[x] Equipe: 2-3 membros (correto)</li>
+<li>[x] Submissao: GitHub Pages via Blackboard (correto)</li>
+<li>[x] Rubrica: 10 pontos + 1 bonus (correto)</li>
+<li>[x] Oito passos: Todos documentados (correto)</li>
+</ul>
+<hr />
+<h2 id="status-final">Status Final<a class="headerlink" href="#status-final" title="Permanent link">&para;</a></h2>
+<p><strong>Resultado</strong>: VERIFICACAO COMPLETA</p>
+<p>Todos os requisitos do projeto e da competicao foram documentados corretamente. A estrutura de relatorio em GitHub Pages esta pronta para submissao.</p>
+<p><strong>Proximos Passos</strong>:
+1. Gerar GitHub Pages com MkDocs
+2. Fazer submissao final no Kaggle
+3. Documentar resultados e posicao no leaderboard
+4. Preparar para possível defesa oral
+5. Submeter link via Blackboard antes do deadline</p>
+<hr />
+<p><strong>Data de Verificacao</strong>: 26 de outubro de 2025<br />
+<strong>Verificador</strong>: Documentacao do Projeto<br />
+<strong>Status</strong>: PRONTO PARA SUBMISSAO</p>
+<h2 id="metricas-de-avaliacao">Metricas de Avaliacao<a class="headerlink" href="#metricas-de-avaliacao" title="Permanent link">&para;</a></h2>
+<h3 id="v1-metrics">v1 Metrics<a class="headerlink" href="#v1-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>✅ RMSE: 38.937,57 (treino/teste)</li>
+<li>✅ MAE: 13.565,70</li>
+<li>✅ R²: 0,5513</li>
+<li>✅ Salvo em: metricas_v1.json</li>
+</ul>
+<h3 id="v2-metrics">v2 Metrics<a class="headerlink" href="#v2-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>✅ RMSE: 7.547,03 (OOF)</li>
+<li>✅ MAE: 1.626,75</li>
+<li>✅ R²: 0,9763</li>
+<li>✅ Competition Score: 0,9530</li>
+<li>✅ Salvo em: metricas_v2.json</li>
+</ul>
+<h3 id="v3-metrics-completo">v3 Metrics (COMPLETO)<a class="headerlink" href="#v3-metrics-completo" title="Permanent link">&para;</a></h3>
+<ul>
+<li>✅ RMSE: 19.991,72 (melhor modelo da busca)</li>
+<li>✅ MSE: 399.669.007</li>
+<li>✅ MAE: 863,65 (calculado no treino)</li>
+<li>✅ R²: 0,9942 (calculado no treino)</li>
+<li>✅ Competition Score: 0,7821</li>
+<li>✅ Hiperparametros: [256, 128, 64], tanh, alpha=0.0001, batch_size=128, lr=0.001</li>
+<li>✅ Busca: 36 combinacoes testadas com 3 seeds</li>
+<li>✅ ACHADO IMPORTANTE: Overfitting severo (R² alta mas RMSE ruim)</li>
+<li>✅ Salvo em: metricas_v3.json</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

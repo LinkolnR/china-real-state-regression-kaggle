@@ -1,0 +1,909 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação acadêmica - Análise e modelagem de demanda no mercado imobiliário chinês">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>RELATORIO - Previsão de Demanda Imobiliária Chinesa</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#relatorio-tecnico-completo" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="Previsão de Demanda Imobiliária Chinesa" class="md-header__button md-logo" aria-label="Previsão de Demanda Imobiliária Chinesa" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Previsão de Demanda Imobiliária Chinesa
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              RELATORIO
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../project/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contexto do Projeto
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../dataset/overview/" class="md-tabs__link">
+          
+  
+  
+  Dataset e Preparação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../training/overview/" class="md-tabs__link">
+          
+  
+  
+  Modelos de Training
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../evaluation/metrics/" class="md-tabs__link">
+          
+  
+  
+  Avaliação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../conclusion/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Conclusões
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Previsão de Demanda Imobiliária Chinesa" class="md-nav__button md-logo" aria-label="Previsão de Demanda Imobiliária Chinesa" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Previsão de Demanda Imobiliária Chinesa
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Início
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contexto do Projeto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Dataset e Preparação
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Dataset e Preparação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataset/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Descrição dos Dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataset/eda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exploração Inicial
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Modelos de Training
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Modelos de Training
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visão Geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training/v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modelo v1 - Baseline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training/v2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modelo v2 - Feature Engineering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training/v3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modelo v3 - Otimização
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Avaliação
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Avaliação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evaluation/metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Métricas de Desempenho
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evaluation/comparison/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Comparação dos Modelos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evaluation/results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Resultados Finais
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conclusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Conclusões
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>RELATORIO</h1>
+
+<h2 id="relatorio-tecnico-completo">Relatório Técnico Completo<a class="headerlink" href="#relatorio-tecnico-completo" title="Permanent link">&para;</a></h2>
+<h3 id="1-contexto-e-objetivo">1. Contexto e Objetivo<a class="headerlink" href="#1-contexto-e-objetivo" title="Permanent link">&para;</a></h3>
+<p>O objetivo é prever <code>amount_new_house_transactions</code> (10.000 yuan) por mês e setor, usando dados transacionais, de vizinhança, usados, terrenos, POIs e índices de cidade. A métrica principal no desenvolvimento foi MSE e, adicionalmente, um score customizado de competição baseado em erro relativo truncado.</p>
+<h3 id="2-dados-disponiveis">2. Dados Disponíveis<a class="headerlink" href="#2-dados-disponiveis" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>train/new_house_transactions.csv</code>: alvo e drivers primários (num/area/price), estoque e venda.</li>
+<li><code>train/new_house_transactions_nearby_sectors.csv</code>: agregados de vizinhança.</li>
+<li><code>train/pre_owned_house_transactions*.csv</code>: mercado de usados (substituição/competição).</li>
+<li><code>train/land_transactions*.csv</code>: pipeline de oferta (construção/planejado/montante).</li>
+<li><code>train/sector_POI.csv</code>: estrutura urbana e demanda potencial por setor.</li>
+<li><code>train/city_search_index.csv</code>: interesse do mercado via buscas (mensal).</li>
+<li><code>train/city_indexes.csv</code>: indicadores macro anuais por cidade.</li>
+<li><code>test.csv</code>: amostras a prever (mês/setor).</li>
+</ul>
+<p>Colunas temporais foram padronizadas com <code>year</code>, <code>month_num</code>, <code>month_index = year*12+month_num</code> e <code>sector_int</code>.</p>
+<h3 id="3-pre-processamento">3. Pré-processamento<a class="headerlink" href="#3-pre-processamento" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Análise temporal das colunas <code>month</code> para chaves temporais e setor.</li>
+<li>Construção de grade completa mês × setor; alvo ausente tratado como 0 quando não há transação.</li>
+<li>Alinhamento temporal sem vazamento: apenas features com timestamp ≤ t para prever t.</li>
+<li>Tratamento de tipos: inteiros e floats coerentes; <code>sector_int</code> como inteiro.</li>
+<li>Faltantes: imputação por mediana (numéricas); forward-fill setorial para preços quando aplicável; zeros para ausência de atividade.</li>
+<li>Escalas: StandardScaler após imputação. Transformação <code>log1p</code> no alvo; previsões revertidas com <code>expm1</code>.</li>
+</ul>
+<h3 id="4-engenharia-de-atributos">4. Engenharia de Atributos<a class="headerlink" href="#4-engenharia-de-atributos" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Defasagens (1, 3, 6) e médias móveis (3, 6) para: alvo, num, area, price e principais variáveis de vizinhos, usados e terrenos.</li>
+<li>Razões: <code>amount/num</code>, <code>area/num</code>, checagem <code>price*area</code> vs <code>amount</code> (consistência).</li>
+<li>Indicadores de estoque e sell-through.</li>
+<li>Integração de POIs por setor (quando disponíveis) e índices anuais (forward-fill).</li>
+</ul>
+<h3 id="5-validacao-e-metricas">5. Validação e Métricas<a class="headerlink" href="#5-validacao-e-metricas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Divisão temporal com <code>TimeSeriesSplit(n_splits=5)</code> para OOF.</li>
+<li>Métrica de seleção: MSE em escala linear do alvo (após reverter <code>expm1</code>).</li>
+<li>Métrica adicional (holdout final): score de competição customizado com corte de erros &gt; 100% e MAPE normalizado.</li>
+</ul>
+<h3 id="6-modelagem-com-redes-neurais">6. Modelagem com Redes Neurais<a class="headerlink" href="#6-modelagem-com-redes-neurais" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Pipeline: imputação mediana → escala (StandardScaler) → MLPRegressor (sklearn).</li>
+<li>Otimização via amostragem de hiperparâmetros (30 combinações): tamanhos de camadas, ativação, L2 (<code>alpha</code>), lote, learning rate (Adam) e early stopping.</li>
+<li>Melhor configuração (exemplo obtido no OOF): <code>hidden_layer_sizes=(256,128,64)</code>, <code>activation='tanh'</code>, <code>alpha≈2.4e-6</code>, <code>batch_size=256</code>, <code>learning_rate_init≈9.3e-3</code>, <code>solver='adam'</code>.</li>
+</ul>
+<h3 id="7-resultados">7. Resultados<a class="headerlink" href="#7-resultados" title="Permanent link">&para;</a></h3>
+<ul>
+<li>OOF MSE: 7.78e8 (aprox.).</li>
+<li>Holdout (últimos 10% do tempo): score competição ≈ 0.764; fração com erro ≤ 100% ≈ 0.94.</li>
+<li>Importância por permutação (amostra): maior relevância em defasagens/MA do alvo e de <code>price/area</code>; sinais de vizinhança e usados também contribuíram.</li>
+</ul>
+<h3 id="8-espacos-para-graficos">8. Espaços para Gráficos<a class="headerlink" href="#8-espacos-para-graficos" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Distribuição do alvo (linear e log1p).</li>
+<li>Série temporal da média do alvo por <code>month_index</code>.</li>
+<li>Mapas de calor de correlação por tabela.</li>
+<li>Predito vs Real (holdout) e histograma de resíduos.</li>
+<li>Curva de perda do treinamento do MLP.</li>
+<li>Importância por permutação (top 20 features).</li>
+</ul>
+<p>Insira as figuras nos locais abaixo:</p>
+<p><img alt="Distribuição do alvo" src="../imgs/distribuicao_alvo.png" /></p>
+<p><img alt="Distribuição log1p" src="../imgs/distribuicao_log1p.png" /></p>
+<p><img alt="Série temporal do alvo" src="../imgs/serie_alvo.png" /></p>
+<p><img alt="Mapa de calor correlações" src="../imgs/correlacoes.png" /></p>
+<p><img alt="Predito vs Real" src="../imgs/pred_vs_true.png" /></p>
+<p><img alt="Resíduos" src="../imgs/residuos.png" /></p>
+<p><img alt="Curva de perda" src="../imgs/loss_curve.png" /></p>
+<p><img alt="Importância por permutação" src="../imgs/perm_importance.png" /></p>
+<h3 id="9-evolucao-e-avancos">9. Evolução e Avanços<a class="headerlink" href="#9-evolucao-e-avancos" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Consolidação de múltiplas tabelas em um dataset temporal unificado mês × setor.</li>
+<li>Regras de consistência <code>price*area ~ amount</code> para sanity check.</li>
+<li>Engenharia de defasagens e médias móveis melhorou a estabilidade e o MSE.</li>
+<li>Otimização manual com validação temporal evitou vazamentos e estabilizou o early stopping.</li>
+</ul>
+<h3 id="10-desafios-enfrentados">10. Desafios Enfrentados<a class="headerlink" href="#10-desafios-enfrentados" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Heterogeneidade e esparsidade de POIs (várias colunas 100% ausentes em subset), exigindo exclusão ou imputação agressiva.</li>
+<li>Balancear defasagens e MAs sem aumentar demais a dimensionalidade (risco de overfit).</li>
+<li>Ajustar a escala do alvo via <code>log1p</code> para reduzir a influência de extremos.</li>
+</ul>
+<h3 id="11-conclusoes">11. Conclusões<a class="headerlink" href="#11-conclusoes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>O MLP com pré-processamento adequado atinge desempenho competitivo e estável com splits temporais.</li>
+<li>A informação temporal (defasagens/MA) de <code>amount</code>, <code>price</code> e <code>area</code> é central; vizinhança e mercado de usados agregam ganho adicional.</li>
+<li>Para ganhos futuros, recomenda-se explorar: GBDTs (LightGBM/XGBoost), modelos sequenciais (LSTM/TemporalConv), embeddings de setor e atenção ao leakage.</li>
+</ul>
+<h3 id="12-reprodutibilidade">12. Reprodutibilidade<a class="headerlink" href="#12-reprodutibilidade" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Pipeline final salvo em <code>final_pipe.joblib</code>.</li>
+<li>Geração de <code>submission.csv</code> (colunas <code>id</code>, <code>new_house_transaction_amount</code>) contemplada no notebook.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "toc.integrate"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
