@@ -15,7 +15,7 @@ Descrição estatística (em log1p):
 
 Distribuição original:
 - Altamente assimétrica (skewness original > 2)
-- Mediada por log1p para normalização
+- Mitigada por log1p para normalização
 - Contém aprox. 5-10% de zeros
 
 ![Distribuição do alvo (linear)](../imgs/distribuicao_alvo.png)
@@ -26,16 +26,16 @@ Distribuição original:
 
 | Feature | Média | Desvio Padrão | Mínimo | Máximo |
 |---------|-------|---------------|--------|--------|
-| price | 12,500 | 8,200 | 2,000 | 45,000 |
-| area | 850,000 | 620,000 | 50,000 | 5,000,000 |
+| price | 12.500 | 8.200 | 2.000 | 45.000 |
+| area | 850.000 | 620.000 | 50.000 | 5.000.000 |
 | num | 120 | 150 | 5 | 800 |
 
 ## Análise Exploratória
 
 ### Sazonalidade
 
-- Picos em Fevereiro/Março (pós Ano Novo Chinês)
-- Vale em Junho/Julho (redução de demanda)
+- Picos em fevereiro/março (pós Ano Novo Chinês)
+- Vale em junho/julho (redução de demanda)
 - Padrões consistentes ano a ano
 
 ![Série temporal da média do alvo](../imgs/serie_alvo.png)
@@ -62,4 +62,4 @@ Distribuição original:
 
 ---
 
-**Próxima Seção**: [Modelos de Treinamento](../training/overview.md)
+**Próxima Seção**: [Modelos de Training](../training/overview.md)

@@ -11,7 +11,7 @@
 
 - **Nome**: Real Estate Demand Prediction Challenge
 - **Plataforma**: Kaggle
-- **Período**: 3 meses de duração
+- **Período**: Três meses de duração
 - **Status**: Em andamento
 
 ## Objetivo Principal
@@ -22,7 +22,7 @@ Desenvolver um modelo de regressão neural (MLP) que prevê o volume mensal de t
 
 ### Cobertura
 
-- **Período**: Janeiro 2019 a Julho 2024 (67 meses)
+- **Período**: Janeiro de 2019 a julho de 2024 (67 meses)
 - **Setores**: 95 setores distintos
 - **Observações**: 5.433 registros (setor + mês)
 - **Variável Alvo**: new_house_transaction_amount (em 10 mil Yuan)
@@ -36,7 +36,7 @@ Desenvolver um modelo de regressão neural (MLP) que prevê o volume mensal de t
 Se mais de 30% das amostras tiverem erro percentual absoluto (APE) > 100%:
 - Score = 0 imediatamente
 
-#### Estagio 2
+#### Estágio 2
 
 Caso contrário, calcula-se MAPE apenas para predições com APE ≤ 100%:
 
@@ -48,7 +48,7 @@ $$
 \text{Score} = 1 - \frac{\text{average}(D)}{|D| / n}
 $$
 
-### Metricas de Regressão (Projeto)
+### Métricas de Regressão (Projeto)
 
 Para avaliação do projeto, calcular:
 

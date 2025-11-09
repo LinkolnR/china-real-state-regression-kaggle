@@ -1,14 +1,14 @@
-# Modelos de Training - Visao Geral
+# Modelos de Training - Visão Geral
 
 ## Abordagem Geral
 
-Foram desenvolvidas tres versoes de modelos MLPRegressor (redes neurais artificiais) com aumentando complexidade e sofisticacao.
+Foram desenvolvidas três versões de modelos MLPRegressor (redes neurais artificiais) com complexidade e sofisticação crescentes.
 
 | Aspecto | v1 | v2 | v3 |
 |---------|----|----|-----|
-| Features | 63 basicas | 27 engineered | 27 engineered |
-| Validacao | TimeSeriesSplit | GroupKFold | TimeSeriesSplit + Seeds |
-| Arquitetura | Fixa | Fixa | Busca automatica |
+| Features | 63 básicas | 27 engineered | 27 engineered |
+| Validação | TimeSeriesSplit | GroupKFold | TimeSeriesSplit + Seeds |
+| Arquitetura | Fixa | Fixa | Busca automática |
 | Tempo Treino | ~10 min | ~15 min | ~2-3 horas |
 
 ## Arquitetura Base (MLP)
@@ -17,30 +17,30 @@ Foram desenvolvidas tres versoes de modelos MLPRegressor (redes neurais artifici
 Entrada (N features)
   |
   v
-Camada Oculta 1: 256 neuronios (ReLU/Tanh)
+Camada Oculta 1: 256 neurônios (ReLU/Tanh)
   |
   v
-Camada Oculta 2: 128 neuronios (ReLU/Tanh)
+Camada Oculta 2: 128 neurônios (ReLU/Tanh)
   |
   v
-Camada Oculta 3: 64 neuronios (ReLU/Tanh)
+Camada Oculta 3: 64 neurônios (ReLU/Tanh)
   |
   v
-Saida (1 neuronio - regressao)
+Saída (1 neurônio - regressão)
 ```
 
-## Mecanismo de Validacao
+## Mecanismo de Validação
 
 ### v1: TimeSeriesSplit
 
 - Respeita ordem temporal
 - Sem data leakage entre treino/teste
-- Menos adequado para dados hierarquicos
+- Menos adequado para dados hierárquicos
 
 ### v2: GroupKFold
 
 - Agrupa por setor (sector_id)
-- Garante representacao de todos os 95 setores
+- Garante representação de todos os 95 setores
 - Evita data leakage setorial
 - 5 folds balanceados
 
@@ -48,17 +48,17 @@ Saida (1 neuronio - regressao)
 
 - Validação temporal 
 - 3 seeds distintos (42, 123, 456)
-- Avalia robustez e reproducibilidade
+- Avalia robustez e reprodutibilidade
 
-## Transformacoes de Dados
+## Transformações de Dados
 
 - **Alvo**: log1p(amount_new_house_transactions)
-- **Reverso para predicoes**: expm1(predicoes)
-- **Features**: StandardScaler normaliza para media 0, desvio 1
+- **Reverso para predições**: expm1(predições)
+- **Features**: StandardScaler normaliza para média 0, desvio 1
 
-## Comparacao Resumida
+## Comparação Resumida
 
-| Modelo | Validacao | Features | RMSE | MAE | R² | Competition Score |
+| Modelo | Validação | Features | RMSE | MAE | R² | Competition Score |
 |--------|-----------|----------|------|-----|----|--------------------|
 | v1 | TimeSeriesSplit | 27 | 38.937,57 | 13.565,70 | 0,5513 | - |
 | v2 | GroupKFold | 27 + lags | 7.547,03 | 1.626,75 | 0,9763 | 0,9530 |
@@ -68,7 +68,7 @@ Saida (1 neuronio - regressao)
 
 ---
 
-Proximas secoes:
+Próximas seções:
 - [Modelo v1 - Baseline](v1.md)
 - [Modelo v2 - Feature Engineering](v2.md)
-- [Modelo v3 - Otimizacao](v3.md)
+- [Modelo v3 - Otimização](v3.md)
